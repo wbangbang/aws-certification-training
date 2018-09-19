@@ -194,15 +194,154 @@ To access AWS Cloud services, three ways:
 
 ### Exam Essentials
 
-#### Understand the global infrastructure
-
-#### Understand regions
-
-#### Understand Availability Zones
-
-#### Understand the hybrid deployment model
+* Understand the global infrastructure
+* Understand regions
+* Understand Availability Zones
+* Understand the hybrid deployment model
 
 
 
 <span id="chapter-2"></span>
 ## Chapter 2
+
+### Introduction
+
+Common use cases for S3:
+
+* Backup and archive for on-premises or cloud data
+* Content, media, and software storage and distribution
+* Big data analytics
+* Static website hosting
+* Cloud-native mobile and Internet application hosting
+* Disaster recovery
+
+### Object Storage versus Traditional Block and File Storage
+
+Instead of being closely associated with a server, Amazon S3 storage is independent of a server and is accessed over the Internet - data is managed as objects using an Application Program Interface (API) built on standard HTTP verbs.
+
+Each Amazon S3 object contains both data and metadata. Objects reside in containers called buckets, and each object is identified by a unique user-specified key (filename). Buckets are a simple flat folder *with no file system hierarchy*. That is, you can have multiple buckets, but you can’t have a sub-bucket within a bucket. Each bucket can hold an unlimited number of objects.
+
+In Amazon S3, you GET an object or PUT an object, operating on the whole object at once, instead of incrementally updating portions of the object as you would with a file.
+
+> Tip: If you need traditional block or file storage in addition to Amazon S3 storage, AWS provides options. The Amazon EBS service provides block level storage for Amazon Elastic Compute Cloud (Amazon EC2) instances. Amazon Elastic File System (AWS EFS) provides network-attached shared file storage (NAS storage) using the NFS v4 protocol.
+
+### Amazon Simple Storage Service (Amazon S3) Basics
+
+#### Buckets
+
+Bucket names can contain up to 63 lowercase letters, numbers, hyphens, and periods. You can create and use multiple buckets; you can have up to 100 per account by default.
+
+> Tip: It is a best practice to use bucket names that contain your domain name and conform to the rules for DNS names. This ensures that your bucket names are your own, can be used in all regions, and can host static websites.
+
+#### AWS Regions
+
+#### Objects
+
+Objects can range in size from 0 bytes up to 5TB, and a single bucket can store an unlimited number of objects.
+
+#### Keys
+
+A key can be up to 1024 bytes of Unicode UTF-8 characters, including embedded slashes, backslashes, dots, and dashes.
+
+Keys must be unique within a single bucket, but different buckets can contain objects with the same key. The combination of bucket, key, and optional version ID uniquely identifies an Amazon S3 object.
+
+#### Object URL
+
+> Tip: For convenience, the Amazon S3 console and the Prefix and Delimiter feature allow you to navigate within an Amazon S3 bucket as if there were a folder hierarchy. However, remember that a bucket is a single flat namespace of keys with no structure.
+
+#### Amazon S3 Operations
+
+#### REST Interface
+
+> Tip: Always use HTTPS for Amazon S3 API requests to ensure that your requests and data are secure.
+
+> Tip: Amazon S3 originally supported a SOAP (Simple Object Access Protocol) API in addition to the REST API, but you should use the REST API. The legacy HTTPS endpoint is still available, but new features are not supported.
+
+#### Durability and Availability
+
+> Tip: Even though Amazon S3 storage offers very high durability at the infrastructure level, it is still a best practice to protect against user-level accidental deletion or overwriting of data by using additional features such as versioning, cross-region replication, and MFA Delete.
+
+#### Data Consistency
+
+Amazon S3 is an **eventually consistent** system.
+
+#### Access Control
+
+Amazon S3 provides both coarse-grained access controls (Amazon S3 Access Control Lists [ACLs]), and fine-grained
+access controls (Amazon S3 bucket policies, AWS Identity and Access Management [IAM] policies, and query-string authentication).
+
+Differences between bucket policies and IAM:
+
+* They are associated with the bucket resource instead of an IAM principal.
+* They include an explicit reference to the IAM principal in the policy. This principal can be associated with a different AWS account, so Amazon S3 bucket policies allow you to assign cross-account access to Amazon S3 resources.
+
+#### Static Website Hosting
+
+### Amazon S3 Advanced Features
+
+#### Prefixes and Delimiters
+
+> Tip: Use delimiters and object prefixes to hierarchically organize the objects in your Amazon S3 buckets, but always remember that Amazon S3 is not really a file system.
+
+#### Storage Classes
+
+Amazon Glacier allows you to retrieve up to 5% of the Amazon S3 data stored in Amazon Glacier for free each month.
+
+> Tip: Set a data retrieval policy to limit restores to the free tier or to a maximum GBper-hour limit to avoid or minimize Amazon Glacier restore fees.
+
+#### Object Lifecycle Management
+
+#### Encryption
+
+To encrypt your Amazon S3 data in flight, you can use the Amazon S3 Secure Sockets Layer (SSL) API endpoints. This ensures that all data sent to and from Amazon S3 is encrypted while in transit using the HTTPS protocol.
+
+To encrypt your Amazon S3 data at rest, you can use several variations of Server-Side Encryption (SSE). Amazon S3 encrypts your data at the object level as it writes it to disks in its data centers and decrypts it for you when you access it. All SSE performed by Amazon S3 and AWS Key Management Service (Amazon KMS) uses the 256-bit Advanced Encryption Standard (AES). 
+
+##### SSE-S3 (AWS-Managed Keys)
+##### SSE-KMS (AWS KMS Keys)
+##### SSE-C (Customer-Provided Keys)
+##### Client-Side Encryption
+
+> Tip: For maximum simplicity and ease of use, use server-side encryption with AWSmanaged
+keys (SSE-S3 or SSE-KMS).
+
+#### Versioning
+
+#### Pre-Signed URLs
+
+#### Multipart Upload
+
+> Tip: You can set an object lifecycle policy on a bucket to abort incomplete multipart uploads after a specified number of days. This will minimize the storage costs associated with multipart uploads that were not completed.
+
+#### Range GETs
+
+#### Cross-Region Replication
+
+> Tip: If turned on in an existing bucket, cross-region replication will only replicate new objects. Existing objects will not be replicated and must be copied to the new bucket via a separate command.
+
+#### Logging
+
+Logging is off by default.
+
+#### Event Notifications
+
+#### Best Practices, Patterns, and Performance
+
+> Tip: If you are using Amazon S3 in a GET-intensive mode, such as a static website hosting, for best performance you should consider using an Amazon CloudFront distribution as a caching layer in front of your Amazon S3 bucket.
+
+### Amazon Glacier
+
+#### Archives
+
+An archive can contain up to 40TB of data, and you can have an unlimited number of archives.
+
+#### Vaults
+
+Vaults are containers for archives. Each AWS account can have up to 1,000 vaults.
+
+#### Vaults Locks
+
+#### Data Retrieval
+
+#### Amazon Glacier versus Amazon Simple Storage Service (Amazon S3)
+
