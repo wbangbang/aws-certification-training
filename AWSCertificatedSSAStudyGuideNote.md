@@ -202,7 +202,7 @@ To access AWS Cloud services, three ways:
 
 
 <span id="chapter-2"></span>
-## Chapter 2
+## Chapter 2 - Amazon Simple Storage Service (Amazon S3) and Amazon Glacier Storage
 
 ### Introduction
 
@@ -344,4 +344,34 @@ Vaults are containers for archives. Each AWS account can have up to 1,000 vaults
 #### Data Retrieval
 
 #### Amazon Glacier versus Amazon Simple Storage Service (Amazon S3)
+
+### Exam Essentials
+
+* Know what amazon s3 is and what it is commonly used for. 
+* Understand how object storage differs from block and file storage.
+* Understand the basics of Amazon S3.
+* Understand the durability, availability, and data consistency model of Amazon S3.
+* Know how to enable static website hosting on Amazon S3.
+* Know how to protect your data on Amazon S3.
+* Know the use case for each of the Amazon S3 storage classes.
+* Know how to use lifecycle configuration rules. 
+* Know how to use Amazon S3 event notifications. 
+* Know the basics of amazon glacier as a standalone service.
+
+
+
+<span id="chapter-3"></span>
+## Chapter 3 - Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Elastic Block Store (Amazon EBS)
+
+### Amazon Elastic Compute Cloud (Amazon EC2)
+
+#### Compute Basics
+
+There are two concepts that are key to launching instances on AWS: (1) the amount of virtual hardware dedicated to the instance and (2) the software loaded on the instance. These two dimensions of new instances are controlled, respectively, by the instance type and the AMI.
+
+##### Instance Types
+
+##### Amazon Machine Images (AMIs)
+
+The Amazon Machine Image (AMI) defines the initial software that will be on an instance when it is launched.
 
