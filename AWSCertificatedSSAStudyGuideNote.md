@@ -375,3 +375,130 @@ There are two concepts that are key to launching instances on AWS: (1) the amoun
 
 The Amazon Machine Image (AMI) defines the initial software that will be on an instance when it is launched.
 
+Four sources of AMIs:
+
+* Published by AWS
+* The AWS Marketplace
+* Generated from Existing Instances
+* Uploaded Virtual Servers
+
+#### Securely Using an Instance
+
+##### Addressing an Instance
+
+Few ways that an instance may be addressed over the web upon creation:
+
+* Public Domain Name System (DNS) Name
+* Public IP
+* Elastic IP
+
+> Tip: Private IP addresses and Elastic Network Interfaces (ENIs) are additional methods of addressing instances that are available in the context of an Amazon VPC.
+
+##### Initial Access
+
+Key pairs: public key & private key.
+
+> Tip: Store your private keys securely. When Amazon EC2 launches a Linux instance, the public key is stored in the /.ssh/authorized_keys file on the instance and an initialuser is created. The initial user can vary depending on the OS. For example, the Amazon Linux distribution initial user is ec2-user. Initial access to the instance is obtained by using the ec2-user and the private key to log in via SSH. At this point, you can configure other users and enroll in a directory such as LDAP.
+
+##### Virtual Firewall Protection
+
+AWS allows you to control traffic in and out of your instances through virtual firewalls called security groups.
+
+| Type of Security            | Group Capabilities                            |
+| :-------------------------- | :-------------------------------------------- |
+| EC2-Classic Security Groups | Control outgoing instance traffic             |
+| VPC Security Groups         | Control outgoing and incoming instance traffic|
+
+A security group is default deny; that is, it does not allow any traffic that is not explicitly allowed by a security group rule.
+
+A security group is a stateful firewall; that is, an outgoing message is remembered so that the response is allowed through the security group without an explicit inbound rule being required.
+
+Security groups are applied at the instance level.
+
+#### The Lifecycle of Instances
+
+##### Launching
+
+##### Managing Instances
+
+Tags are key/value pairs you can associate with your instance or other service. 
+
+##### Monitoring Instances
+
+AWS CloudWatch
+
+##### Modifying an Instance
+
+##### Termination Protection
+
+#### Options
+
+##### Pricing Options
+
+* On-Demand Instances
+* Reserved Instances
+* Spot Instances
+
+Architectures with Different Pricing Models
+
+##### Tenancy Options
+
+* Shared Tenancy
+* Dedicated Instances
+* Dedicated Host
+
+##### Placement Groups
+
+#### Instance Stores
+
+### Amazon Elastic Block Store (Amazon EBS)
+
+#### Elastic Block Store Basics
+
+#### Types of Amazon EBS Volumes
+
+##### Magnetic Volumes
+
+A magnetic Amazon EBS volume can range in size from 1 GB to 1 TB and will average 100
+IOPS, but has the ability to burst to hundreds of IOPS. They are best suited for:
+
+* Workloads where data is accessed infrequently
+* Sequential reads
+* Situations where low-cost storage is a requirement
+
+##### General-Purpose SSD
+
+A general-purpose SSD volume can range in size from 1 GB to 16 TB and provides a baseline performance of three IOPS per gigabyte provisioned, capping at 10,000 IOPS. 
+
+General-purpose SSD volumes under 1 TB also feature the ability to burst to up to 3,000 IOPS for extended periods of time.
+
+They are suited for a wide range of workloads where the very highest disk performance is not critical, such as:
+
+* System boot volumes
+* Small- to medium-sized databases
+* Development and test environments
+
+##### Provisioned IOPS SSD
+
+A Provisioned IOPS SSD volume can range in size from 4 GB to 16 TB. When you provision a Provisioned IOPS SSD volume, you specify not just the size, but also the desired number of IOPS, up to the lower of the maximum of 30 times the number of GB of the volume, or 20,000 IOPS.
+
+Provisioned IOPS SSD volumes provide predictable, high performance and are well suited for:
+
+* Critical business applications that require sustained IOPS performance
+* Large database workloads
+
+> Tip: At the time of this writing, AWS released two new HDD volume types: Throughput-Optimized HDD and Cold HDD. Over time, it is expected that these new types will eclipse the current magnetic volume type, fulfilling the needs of any workload requiring HDD performance.
+Throughput-Optimized HDD volumes are low-cost HDD volumes designed for frequentaccess, throughput-intensive workloads such as big data, data warehouses, and log processing. Volumes can be up to 16 TB with a maximum IOPS of 500 and maximum throughput of 500 MB/s. These volumes are significantly less expensive than generalpurpose SSD volumes.
+Cold HDD volumes are designed for less frequently accessed workloads, such as colder data requiring fewer scans per day. Volumes can be up to 16 TB with a maximum IOPS of 250 and maximum throughput of 250 MB/s. These volumes are significantly less expensive than Throughput-Optimized HDD volumes.
+
+##### Amazon EBS-Optimized Instances
+
+#### Protecting Data
+
+##### Backup/Recovery (Snapshots)
+
+##### Recovering Volumes
+
+##### Encryption Options
+
+When you launch an encrypted Amazon EBS volume, Amazon uses the AWS Key Management Service (KMS) to handle key management.
