@@ -521,3 +521,39 @@ When you launch an encrypted Amazon EBS volume, Amazon uses the AWS Key Manageme
 * Know how to encrypt an Amazon ebs volume.
 * Understand the concept and process of snapshots.
 * Know how Amazon ebs-optimized instances affect Amazon ebs performance.
+
+
+
+<span id="chapter-4"></span>
+## Chapter 4 - Amazon Virtual Private Cloud (Amazon VPC)
+
+### Amazon Virtual Private Cloud (Amazon VPC)
+
+Amazon VPC is the networking layer for Amazon Elastic Compute Cloud (Amazon EC2), and it allows you to build your own virtual network within AWS.
+
+Within a region, you can create multiple Amazon VPCs, and each Amazon VPC is logically isolated even if it shares its IP address space.
+
+When you create an Amazon VPC, you must specify the IPv4 address range by choosing a Classless Inter-Domain Routing (CIDR) block.
+
+The Amazon VPC service was released after the Amazon EC2 service; because of this, there are two different networking platforms available within AWS: EC2-Classic and EC2-VPC.
+
+An Amazon VPC consists of the following components:
+
+* Subnets
+* Route tables
+* Dynamic Host Configuration Protocol (DHCP) option sets
+* Security groups
+* Network Access Control Lists (ACLs)
+
+An Amazon VPC has the following optional components:
+
+* Internet Gateways (IGWs)
+* Elastic IP (EIP) addresses
+* Elastic Network Interfaces (ENIs)
+* Endpoints
+* Peering
+* Network Address Translation (NATs) instances and NAT gateways
+* Virtual Private Gateway (VPG), Customer Gateways (CGWs), and Virtual Private Networks (VPNs)
+
+### Subnets
+
