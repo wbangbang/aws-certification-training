@@ -502,3 +502,22 @@ Cold HDD volumes are designed for less frequently accessed workloads, such as co
 ##### Encryption Options
 
 When you launch an encrypted Amazon EBS volume, Amazon uses the AWS Key Management Service (KMS) to handle key management.
+
+### Exam Essentials
+
+* Know the basics of launching an Amazon ec2 instance.
+* Know what architectures are suited for what Amazon ec2 pricing options
+* Know how to combine multiple pricing options that result in cost optimization and scalability.
+* Know the benefits of enhanced networking.
+* Know the capabilities of vm import/export.
+* Know the methods for accessing an instance over the internet. 
+* Know the lifetime of an instance store.
+* Know the properties of the Amazon EC2 pricing options.
+* Know what determines network performance.
+* Know what instance metadata is and how it’s obtained. 
+* Know how security groups protect instances.
+* Know how to interpret the effect of security groups.
+* Know the different Amazon ebs volume types, their characteristics, and their appropriate workloads.
+* Know how to encrypt an Amazon ebs volume.
+* Understand the concept and process of snapshots.
+* Know how Amazon ebs-optimized instances affect Amazon ebs performance.
