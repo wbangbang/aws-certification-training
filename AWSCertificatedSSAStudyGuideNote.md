@@ -557,3 +557,91 @@ An Amazon VPC has the following optional components:
 
 ### Subnets
 
+A subnet is a segment of an Amazon VPC’s IP address range where you can launch Amazon EC2 instances, Amazon Relational Database Service (Amazon RDS) databases, and other AWS resources. AWS reserves the first four IP addresses and the last IP address of every subnet for internal networking purposes.
+
+After creating an Amazon VPC, you can add one or more subnets in each Availability Zone. Subnets reside within one Availability Zone and cannot span zones. 
+
+Subnets can be classified as public, private, or VPN-only. Regardless of the type of subnet, the internal IP
+address range of the subnet is always private (that is, non-routable on the Internet).
+
+### Route Tables
+
+A route table is a logical construct within an Amazon VPC that contains a set of rules (called routes) that are applied to the subnet and used to determine where network traffic is directed. A route table’s routes are what permit Amazon EC2 instances within different subnets within an Amazon VPC to communicate with each other.
+
+You should remember the following points about route tables:
+
+* Your VPC has an implicit router.
+* Your VPC automatically comes with a main route table that you can modify.
+* You can create additional custom route tables for your VPC.
+* Each subnet must be associated with a route table, which controls the routing for the subnet. If you don’t explicitly associate a subnet with a particular route table, the subnet uses the main route table.
+* You can replace the main route table with a custom table that you’ve created so that each new subnet is automatically associated with it.
+* Each route in a table specifies a destination CIDR and a target; for example, traffic destined for 172.16.0.0/12 is targeted for the VPG. AWS uses the most specific route that matches the traffic to determine how to route the traffic.
+
+### Internet Gateways
+
+An IGW provides a target in your Amazon VPC route tables for Internet-routable traffic, and it performs network address translation for instances that have been assigned public IP addresses.
+
+You must do the following to create a public subnet with Internet access:
+
+* Attach an IGW to your Amazon VPC.
+* Create a subnet route table rule to send all non-local traffic (0.0.0.0/0) to the IGW.
+* Configure your network ACLs and security group rules to allow relevant traffic to flow to and from your instance.
+
+You must do the following to enable an Amazon EC2 instance to send and receive traffic from the Internet:
+
+* Assign a public IP address or EIP address.
+
+Follwing is showing VPC, subnet, route table, and an Internet gateway:
+![VPC, subnet, route table, and an Internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/images/internet-gateway-overview-diagram.png)
+
+### Dynamic Host Configuration Protocol (DHCP) Option Sets
+
+AWS automatically creates and associates a DHCP option set for your Amazon VPC upon creation and sets two options: domain-name-servers (defaulted to AmazonProvidedDNS) and domain-name (defaulted to the domain name for your region). 
+
+The DHCP option sets element of an Amazon VPC allows you to direct Amazon EC2 host name assignments to your own resources. 
+
+Every Amazon VPC must have only one DHCP option set assigned to it
+
+### Elastic IP Addresses (EIPs)
+
+An Elastic IP Addresses (EIP) is a static, public IP address in the pool for the region that you can allocate to your account (pull from the pool) and release (return to the pool). 
+
+Important points for the exam:
+
+* You must first allocate an EIP for use within a VPC and then assign it to an instance.
+* EIPs are specific to a region (that is, an EIP in one region cannot be assigned to an instance within an Amazon VPC in a different region).
+* There is a one-to-one relationship between network interfaces and EIPs.
+* You can move EIPs from one instance to another, either in the same Amazon VPC or a different Amazon VPC within the same region.
+* EIPs remain associated with your AWS account until you explicitly release them.
+* There are charges for EIPs allocated to your account, even when they are not associated with a resource.
+
+### Elastic Network Interfaces (ENIs)
+
+An Elastic Network Interface (ENI) is a virtual network interface that you can attach to an instance in an Amazon VPC. ENIs are only available within an Amazon VPC, and they are associated with a subnet upon creation.
+
+### Endpoints
+
+An Amazon VPC endpoint enables you to create a private connection between your Amazon VPC and another AWS service without requiring access over the Internet or through a NAT instance, VPN connection, or AWS Direct Connect.
+
+You must do the following to create an Amazon VPC endpoint:
+
+* Specify the Amazon VPC.
+* Specify the service. A service is identified by a prefix list of the form com.amazonaws.\<region\>.\<service\>.
+* Specify the policy. You can allow full access or create a custom policy. This policy can be changed at any time.
+* Specify the route tables. A route will be added to each specified route table, which will
+state the service as the destination and the endpoint as the target.
+
+### Peering
+
+An Amazon VPC peering connection is a networking connection between two Amazon VPCs. You can create an Amazon VPC peering connection between your own Amazon VPCs or with an Amazon VPC in another AWS account within a single region. A peering connection is neither a gateway nor an Amazon VPN connection and does not introduce a single point of failure for communication.
+
+Peering connections are created through a request/accept protocol. 
+
+Important points for the exam:
+
+* You cannot create a peering connection between Amazon VPCs that have matching or overlapping CIDR blocks.
+* You cannot create a peering connection between Amazon VPCs in different regions.
+* Amazon VPC peering connections do not support transitive routing.
+* You cannot have more than one peering connection between the same two Amazon VPCs at the same time.
+
+### 
