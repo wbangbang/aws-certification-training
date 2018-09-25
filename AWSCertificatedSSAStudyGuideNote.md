@@ -644,4 +644,105 @@ Important points for the exam:
 * Amazon VPC peering connections do not support transitive routing.
 * You cannot have more than one peering connection between the same two Amazon VPCs at the same time.
 
-### 
+### Security Groups
+
+A security group is a virtual **stateful** firewall that controls inbound and outbound network traffic to AWS resources and Amazon EC2 instances. 
+
+Important points for the exam:
+
+* You can create up to 500 security groups for each Amazon VPC.
+* You can add up to 50 inbound and 50 outbound rules to each security group. If you need to apply more than 100 rules to an instance, you can associate up to five security groups with each network interface.
+* You can specify allow rules, but not deny rules. This is an important difference between security groups and ACLs.
+* You can specify separate rules for inbound and outbound traffic.
+* By default, no inbound traffic is allowed until you add inbound rules to the security group.
+* By default, new security groups have an outbound rule that allows all outbound traffic.
+* You can remove the rule and add outbound rules that allow specific outbound traffic only.
+* Security groups are stateful. This means that responses to allowed inbound traffic are allowed to flow outbound regardless of outbound rules and vice versa. This is an important difference between security groups and network ACLs.
+* Instances associated with the same security group can’t talk to each other unless you add rules allowing it (with the exception being the default security group). 
+* You can change the security groups with which an instance is associated after launch, and the changes will take effect immediately.
+
+### Network Access Control Lists (ACLs)
+
+A network access control list (ACL) is another layer of security that acts as a **stateless** firewall on a subnet level. 
+
+Amazon VPCs are created with a modifiable default network ACL associated with every subnet that allows all inbound and outbound traffic. When you create a custom network ACL, its initial configuration will deny all inbound and outbound traffic until you create rules that allow otherwise. 
+
+Overall, every subnet must be associated with a network ACL.
+
+Comparison of Security Groups and Network ACLs:
+
+| Security Group | Network ACL |
+| :------------- | :---------- |
+| Operates at the instance level (first layer of defense) | Operates at the subnet level (second layer of defense) |
+| Supports allow rules only | Supports allow rules and deny rules |
+| Stateful: Return traffic is automatically allowed, regardless of any rules | Stateless: Return traffic must be explicitly allowed by rules |
+| AWS evaluates all rules before deciding whether to allow traffic | AWS processes rules in number order when deciding whether to allow traffic |
+| Applied selectively to individual instances | Automatically applied to all instances in the associated subnets; this is a backup layer of defense, so you don’t have to rely on someone specifying the security group |
+
+### Network Address Translation (NAT) Instances and NAT Gateways
+
+#### NAT Instance
+
+To allow instances within a private subnet to access Internet resources through the IGW via a NAT instance, you must do the following:
+
+* Create a security group for the NAT with outbound rules that specify the needed Internet resources by port, protocol, and IP address.
+* Launch an Amazon Linux NAT AMI as an instance in a public subnet and associate it with the NAT security group.
+* Disable the Source/Destination Check attribute of the NAT.
+* Configure the route table associated with a private subnet to direct Internet-bound traffic to the NAT instance (for example, i-1a2b3c4d).
+* Allocate an EIP and associate it with the NAT instance.
+
+#### NAT Gateway
+
+To allow instances within a private subnet to access Internet resources through the IGW via a NAT gateway, you must do the following:
+
+* Configure the route table associated with the private subnet to direct Internet-bound traffic to the NAT gateway (for example, nat-1a2b3c4d).
+* Allocate an EIP and associate it with the NAT gateway.
+
+### Virtual Private Gateways (VPGs), Customer Gateways (CGWs), and Virtual Private Networks (VPNs)
+
+![VPC with VPN connection to a customer network](https://docs.aws.amazon.com/vpc/latest/userguide/images/VPN_Basic_Diagram.png)
+
+Important points for the exam:
+
+* The VPG is the AWS end of the VPN tunnel.
+* The CGW is a hardware or software application on the customer’s side of the VPN tunnel.
+* You must initiate the VPN tunnel from the CGW to the VPG.
+* VPGs support both dynamic routing with BGP and static routing.
+* The VPN connection consists of two tunnels for higher availability to the VPC.
+
+### Exam Essentials
+
+* Understand what a VPC is and its core and optional components.
+* Understand the purpose of a subnet.
+* Identify the difference between a public subnet, a private subnet, and a VPN-Only subnet.
+* Understand the purpose of a route table.
+* Understand the purpose of an IGW. 
+* Understand what DHCP option sets provide to an Amazon VPC.
+* Know the difference between an Amazon VPC public IP address and an EIP address.
+* Understand what endpoints provide to an Amazon VPC.
+* Understand Amazon VPC peering.
+* Know the difference between a security group and a network ACL
+* Understand what a NAT provides to an Amazon VPC. 
+* Understand the components needed to establish a VPN connection from a network to an Amazon VPC. 
+
+
+
+<span id="chapter-5"></span>
+## Chapter 5 - Elastic Load Balancing, Amazon CloudWatch, and Auto Scaling
+
+### Elastic Load Balancing
+
+> Tip: Elastic Load Balancing is a highly available service itself and can be used to help build highly available architectures.
+
+#### Types of Load Balancers
+
+##### Internet-Facing Load Balancers
+
+> Tip: An AWS recommended best practice is always to reference a load balancer by its DNS name, instead of by the IP address of the load balancer, in order to provide a single, stable entry point.
+
+##### Internal Load Balancers
+
+##### HTTPS Load Balancers
+
+#### Listeners
+
