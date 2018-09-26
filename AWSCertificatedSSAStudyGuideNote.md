@@ -746,3 +746,52 @@ Important points for the exam:
 
 #### Listeners
 
+Every load balancer must have one or more listeners configured.
+
+Every listener is configured with a protocol and a port (client to load balancer) for a front-end connection and a protocol and a port for the back-end (load balancer to Amazon EC2 instance) connection. 
+
+Elastic Load Balancing supports the following protocols:
+
+* HTTP
+* HTTPS
+* TCP
+* SSL
+
+#### Configuring Elastic Load Balancing
+
+##### Idle Connection Timeout
+
+##### Cross-Zone Load Balancing
+
+##### Connection Draining
+
+##### Proxy Protocol
+
+##### Sticky Sessions
+
+##### Health Checks
+
+### Amazon CloudWatch
+
+### Auto Scaling
+
+#### Auto Scaling Plans
+
+##### Maintain Current Instance Levels
+
+> Tip: Steady state workloads that need a consistent number of Amazon EC2 instances at all times can use Auto Scaling to monitor and keep that specific number of Amazon EC2 instances running.
+
+##### Manual Scaling
+
+> Tip: Manual scaling out can be very useful to increase resources for an infrequent event, such as the release of a new game version that will be available for download and require a user registration. For extremely large-scale events, even the Elastic Load Balancing load balancers can be pre-warmed by working with your local solutions architect or AWS Support.
+
+##### Scheduled Scaling
+
+> Tip: Recurring events such as end-of-month, quarter, or year processing, or scheduled and recurring automated load and performance testing, can be anticipated and Auto Scaling can be ramped up appropriately at the time of the scheduled event.
+
+##### Dynamic Scaling
+
+#### Auto Scaling Components
+
+##### Launch Configuration
+
