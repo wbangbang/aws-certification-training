@@ -795,3 +795,38 @@ Elastic Load Balancing supports the following protocols:
 
 ##### Launch Configuration
 
+The default limit for launch configurations is 100 per region.
+
+Auto Scaling may cause you to reach limits of other services, such as the default number of Amazon EC2 instances you can currently launch within a region, which is **20**.
+
+##### Auto Scaling Group
+
+An Auto Scaling group can use either On-Demand or Spot Instances as the Amazon EC2 instances it manages.
+
+> Tip: Auto Scaling supports using cost-effective Spot Instances. This can be very useful when you are hosting sites where you want to provide additional compute capacity but are price constrained. 
+
+##### Scaling Policy
+
+> Tip: Scale out quickly; scale in slowly.
+
+### Exam Essentials
+
+* Understand what the Elastic Load Balancing service provides.
+* Know the types of load balancers the Elastic Load Balancing service provides and when to use each one.
+* Know the types of listeners the Elastic Load Balancing service provides and the use case and requirements for using each one. 
+* Understand the configuration options for Elastic Load Balancing. 
+* Know what an Elastic Load Balancing health check is and why it is important.
+* Understand what the amazon CloudWatch service provides and what use cases there are for using it.
+* Know the differences between the two types of monitoring—basic and detailed—for Amazon CloudWatch.
+* Understand Auto Scaling and why it is an important advantage of the AWS Cloud.
+* Know when and why to use Auto Scaling.
+* Know the supported Auto Scaling plans. 
+* Understand how to build an Auto Scaling launch configuration and an Auto Scaling group and what each is used for. 
+* Know what a scaling policy is and what use cases to use it for.
+* Understand how Elastic Load Balancing, amazon CloudWatch, and Auto Scaling are used together to provide dynamic scaling.
+
+
+
+<span id="chapter-6"></span>
+## Chapter 6 - AWS Identity and Access Management (IAM)
+
