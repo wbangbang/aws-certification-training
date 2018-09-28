@@ -830,3 +830,61 @@ An Auto Scaling group can use either On-Demand or Spot Instances as the Amazon E
 <span id="chapter-6"></span>
 ## Chapter 6 - AWS Identity and Access Management (IAM)
 
+### Introduction
+
+IAM is not:
+
+* IAM is not an identity store/authorization system for your applications.
+* IAM is not operating system identity management.
+
+| Use Case                | Technology Solutions                                                |
+| :---------------------- | :------------------------------------------------------------------ |
+| Operating System Access | Active Directory LDAP Machine-specific accounts                     |
+| Application Access      | Active Directory Or Application User Repositories Or Amazon Cognito |
+| AWS Resources           | IAM                                                                 |
+
+### Principals
+
+A principal is an IAM entity that is allowed to interact with AWS resources. There are three types of principals: root users, IAM users, and roles/temporary security tokens.
+
+#### Root User
+
+#### IAM Users
+
+#### Roles/Temporary Security Tokens
+
+Use cases:
+
+* Amazon EC2 Roles
+* Cross-Account Access
+* Federation
+
+> Tip: Using IAM roles for Amazon EC2 removes the need to store AWS credentials in a configuration file.
+
+| Principal                       | Traits                                                                     |
+| :------------------------------ | :------------------------------------------------------------------------- |
+| Root User                       | Cannot be limited Permanent                                                |
+| IAM Users                       | Access controlled by policy; Durable; Can be removed by IAM administrator  | 
+| Roles/Temporary Security Tokens | Access controlled by policy Temporary; Expire after specific time interval |
+
+### Authentication
+
+3 ways to authenticates principals:
+
+* User Name/Password
+* Access Key
+* Access Key/Session Token
+
+### Authorization
+
+Authorization is handled in IAM by defining specific privileges in policies and associating those policies with principals.
+
+#### Policies
+
+Policy documents contain one or more permissions, with each permission defining:
+
+* Effect - Allow or Deny
+* Service
+* Resource - ARN: ```"arn:aws:service:region:account-id:[resourcetype:]resource"```
+* Action
+* Condition
