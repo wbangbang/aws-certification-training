@@ -888,3 +888,42 @@ Policy documents contain one or more permissions, with each permission defining:
 * Resource - ARN: ```"arn:aws:service:region:account-id:[resourcetype:]resource"```
 * Action
 * Condition
+
+#### Associating Policies with Principals
+
+### Other Key Features
+
+#### Multi-Factor Authentication (MFA)
+
+> Tip: MFA requires you to verify your identity with both something you know and something you have.
+
+#### Rotating Keys
+
+#### Resolving Multiple Permissions
+
+It is important to know how conflicts between these permissions are resolved:
+
+1. Initially the request is denied by default.
+2. All the appropriate policies are evaluated; if there is an explicit “deny” found in any policy, the request is denied and evaluation stops.
+3. If no explicit “deny” is found and an explicit “allow” is found in any policy, the request is allowed.
+4. If there are no explicit “allow” or “deny” permissions found, then the default “deny” is maintained and the request is denied. 
+
+### Exam Essentials
+
+* Know the different principals in IAM.
+* Know how principals are authenticated in IAM.
+* Know the parts of a policy.
+* Know how a policy is associated with a principal.
+* Understand MFA.
+* Understand key rotation.
+* Understand IAM roles and federation.
+* Know how to resolve conflicting permissions. 
+
+
+
+<span id="chapter-7"></span>
+## Chapter 7 - Databases and AWS
+
+### Database Primer
+
+### Amazon Relational Database Service (Amazon RDS)
