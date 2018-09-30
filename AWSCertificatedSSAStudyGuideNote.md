@@ -927,3 +927,65 @@ It is important to know how conflicts between these permissions are resolved:
 ### Database Primer
 
 ### Amazon Relational Database Service (Amazon RDS)
+
+#### Database (DB) Instances
+
+The Amazon RDS service itself provides an Application Programming Interface (API) that lets you create and manage one or more DB Instances. A DB Instance is an isolated database environment deployed in your private network segments in the cloud.
+
+The compute and memory resources of a DB Instance are determined by its DB Instance class.
+
+Many features and common configuration settings are exposed and managed using DB parameter groups and DB option groups.
+
+A DB parameter group acts as a container for engine configuration values that can be applied to one or more DB Instances.
+
+A DB option group acts as a container for engine features, which is empty by default.
+
+#### Operational Benefits
+
+| Responsibility       | Database OnPremise | Database on Amazon EC2 | Database on Amazon RDS |
+| :------------------- | :----------------- | :--------------------- | :--------------------- |
+| App Optimization     | You                | You                    | You                    |
+| Scaling              | You                | You                    | AWS                    |
+| High Availability    | You                | You                    | AWS                    |
+| Backups              | You                | You                    | AWS                    |
+| DB Engine Patches    | You                | You                    | AWS                    |
+| Software Installation| You                | You                    | AWS                    |
+| OS Patches           | You                | You                    | AWS                    |
+| OS Installation      | You                | AWS                    | AWS                    |
+| Server Maintenance   | You                | AWS                    | AWS                    |
+| Rack and Stack       | You                | AWS                    | AWS                    |
+| Power and Cooling    | You                | AWS                    | AWS                    |
+
+#### Database Engines
+
+#### Storage Options
+
+Amazon RDS is built using Amazon Elastic Block Store (Amazon EBS) and allows you to select the right storage option based on your performance and cost requirements. 
+
+| Type        | Magnetic | General Purpose (SSD) | Provisioned IOPS (SSD) |
+| :---------- | :------- | :-------------------- | :--------------------- |
+| Size        | +++      | +++++                 | +++++                  |
+| Performance | +        | +++                   | +++++                  |
+| Cost        | ++       | +++                   | +++++                  |
+
+#### Backup and Recovery
+
+* Recovery Point Objective (RPO) - defined as the maximum period of data loss that is acceptable in the event of a failure or incident. 
+* Recovery Time Objective (RTO) - defined as the maximum amount of downtime that is permitted to recover from backup and to resume processing. 
+
+##### Automated Backups
+
+One day of backups will be retained by default, but you can modify the retention period up to a maximum of 35 days. When you delete a DB Instance, all automated backup snapshots are deleted and cannot be recovered. Manual snapshots, however, are not deleted.
+
+##### Manual DB Snapshots
+
+> Tip: For busy databases, use Multi-AZ to minimize the performance impact of a snapshot. During the backup window, storage I/O may be suspended while your data is being backed up, and you may experience elevated latency. This I/O suspension typically lasts for the duration of the snapshot. This period of I/O suspension is shorter for Multi-AZ DB deployments because the backup is taken from the standby, but latency can occur during the backup process.
+
+##### Recovery
+
+You cannot restore from a DB snapshot to an existing DB Instance; a new DB Instance is created when you restore.
+
+#### High Availability with Multi-AZ
+
+Multi-AZ allows you to place a secondary copy of your database in another Availability Zone for disaster recovery purposes. 
+
