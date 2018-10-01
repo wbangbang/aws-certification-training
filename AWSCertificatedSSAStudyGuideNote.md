@@ -989,3 +989,79 @@ You cannot restore from a DB snapshot to an existing DB Instance; a new DB Insta
 
 Multi-AZ allows you to place a secondary copy of your database in another Availability Zone for disaster recovery purposes. 
 
+Amazon RDS automatically replicates the data from the master database or primary instance to the slave database or secondary instance using synchronous replication.
+
+> Tip: It is important to remember that Multi-AZ deployments are for disaster recovery only; they are not meant to enhance database performance. The standby DB Instance is not available to offline queries from the primary master DB Instance. To improve database performance using multiple DB Instances, use read replicas or other DB caching technologies such as Amazon ElastiCache.
+
+#### Scaling Up and Out
+
+##### Vertical Scalability
+
+##### Horizontal Scalability with Partitioning
+
+Partitioning, or sharding, allows you to scale horizontally to handle more users and requests but requires additional logic in the application layer.
+
+##### Horizontal Scalability with Read Replicas
+
+Some common scenarios include:
+
+* Scale beyond the capacity of a single DB Instance for read-heavy workloads. 
+* Handle read traffic while the source DB Instance is unavailable. For example, due to I/O suspension for backups or scheduled maintenance, you can direct read traffic to a replica.
+* Offload reporting or data warehousing scenarios against a replica instead of the primary DB Instance.
+
+> Tip; You can create one or more replicas of a database within a single AWS Region or across multiple AWS Regions. To enhance your disaster recovery capabilities or reduce global latencies, you can use cross-region read replicas to serve read traffic from a region closest to your global users or migrate your databases across AWS Regions. 
+
+#### Security
+
+### Amazon Redshift
+
+#### Clusters and Nodes
+
+A cluster is composed of a leader node and one or more compute nodes. The client application interacts directly only with the leader node, and the compute nodes are transparent to external applications.
+
+![Amazon Redshift cluster architecture](https://docs.aws.amazon.com/redshift/latest/dg/images/02-NodeRelationships.png)
+
+Amazon Redshift currently has support for six different node types and each has a different mix of CPU, memory, and storage. The six node types are grouped into two categories: **Dense Compute** and **Dense Storage**. 
+
+The Dense Compute node types support clusters up to 326TB using fast SSDs, while the Dense Storage nodes support clusters up to 2PB using large magnetic disks. 
+
+Amazon Redshift allows you to resize a cluster to add storage and compute capacity over time. During a resize operation, the database will become read-only until the operation is finished.as your needs evolve.
+
+#### Table Design
+
+##### Data Types
+
+##### Compression Encoding
+
+###### Distribution Strategy
+
+* EVEN distribution
+* KEY distribution
+* ALL distribution
+
+##### Sort Keys
+
+#### Loading Data
+
+> Tip: A COPY command can load data into a table in the most efficient manner, and it supports multiple types of input data sources. The fastest way to load data into Amazon Redshift is doing bulk data loads from flat files stored in an Amazon Simple Storage Service (Amazon S3) bucket or from an Amazon DynamoDB table.
+
+#### Querying Data
+
+#### Snapshots
+
+#### Security
+
+### Amazon DynamoDB
+
+To help maintain consistent, fast performance levels, all table data is stored on high-performance SSD disk drives.
+
+#### Data Model
+
+The basic components of the Amazon DynamoDB data model include tables, items, and attributes.
+
+Individual items in an Amazon DynamoDB table can have any number of attributes, although there is a limit of 400KB on the item size.
+
+Each attribute in an item is a name/value pair. An attribute can be a single-valued or multivalued **set**.
+
+##### Data Types
+
