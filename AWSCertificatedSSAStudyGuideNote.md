@@ -1065,3 +1065,108 @@ Each attribute in an item is a name/value pair. An attribute can be a single-val
 
 ##### Data Types
 
+Data types fall into three major categories: Scalar, Set, or Document.
+
+Amazon DynamoDB supports the following five scalar types:
+
+* String
+* Number
+* Binary
+* Boolean
+* Null
+
+Each value in a set needs to be unique and must be the same data type. Amazon DynamoDB supports three set types: 
+
+* String Set
+* Number Set
+* Binary Set
+
+Amazon DynamoDB supports two document types:
+
+* List
+* Map
+
+##### Primary Key
+
+When you create a table, you must specify the primary key of the table in addition to the table name.
+
+Amazon DynamoDB supports two types of primary keys, and this configuration cannot be changed after a table has been created:
+
+* Partition Key
+* Partition and Sort Key
+
+Furthermore, each primary key attribute must be defined as type string, number, or binary.
+
+> Tip: If you are performing many reads or writes per second on the same primary key, you will not be able to fully use the compute capacity of the Amazon DynamoDB cluster. A best practice is to maximize your throughput by distributing requests across the full range of partition keys.
+
+##### Provisioned Capacity
+
+Each operation against an Amazon DynamoDB table will consume some of the provisioned capacity units. The specific amount of capacity units consumed depends largely on the size of the item, but also on other factors. 
+
+##### Secondary Indexes
+
+When you create a table with a partition and sort key, you can optionally define one or more secondary indexes on that table.
+
+Amazon DynamoDB supports two different kinds of indexes:
+
+* Global Secondary Index
+* Local Secondary Index
+
+While a table can only have one local secondary index, you can have multiple global secondary indexes.
+
+#### Writing and Reading Data
+
+##### Writing Items
+
+##### Reading Items
+
+By default, a GetItem operation performs an eventually consistent read.
+
+##### Eventual Consistency
+
+##### Batch Operations
+
+##### Searching Items
+
+Amazon DynamoDB gives you two operations, Query and Scan.
+
+> Tip: For most operations, performing a Query operation instead of a Scan operation will be the most efficient option. Performing a Scan operation will result in a full scan of the entire table or secondary index, then it filters out values to provide the desired result. Use a Query operation when possible and avoid a Scan on a large table or index for only a small number of items.
+
+#### Scaling and Partitioning
+
+One single partition can hold about 10GB of data and supports a maximum of 3,000 read capacity units or 1,000 write capacity units.
+
+Additional partitions can be added by splitting an existing partition. After a partition is split, however, it cannot be merged back together. 
+
+> Tip: To maximize Amazon DynamoDB throughput, create tables with a partition key that has a large number of distinct values and ensure that the values are requested fairly uniformly. Adding a random element that can be calculated or hashed is one common technique to improve partition distribution.
+
+#### Security
+
+#### Amazon DynamoDB Streams
+
+### Exam Essentials
+
+* Know what a relational database is.
+* Understand which databases are supported by Amazon RDS.
+* Understand the operational benefits of using Amazon RDS.
+* Remember that you cannot access the underlying OS for Amazon RDS DB instances.
+* Know that you can increase availability using Amazon RDS Multi-AZ deployment.
+* Understand the importance of RPO and RTO.
+* Understand that Amazon RDS handles Multi-AZ failover for you. 
+* Remember that Amazon RDS read replicas are used for scaling out and increased performance. 
+* Know what a NoSQL database is.
+* Remember that Amazon DynamoDB is AWS NoSQL service.
+* Know what a data warehouse is.
+* Remember that Amazon Redshift is AWS data warehouse service.
+
+
+
+<span id="chapter-8"></span>
+## Chapter 8 - SQS, SWF, and SNS
+
+### Amazon Simple Queue Service (Amazon SQS)
+
+An Amazon SQS queue is basically a buffer between the application components that receive data and those components that process the data in your system. 
+
+#### Message Lifecycle
+
