@@ -1170,3 +1170,61 @@ An Amazon SQS queue is basically a buffer between the application components tha
 
 #### Message Lifecycle
 
+#### Delay Queues and Visibility Timeouts
+
+![Diagram of visibility time out](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-visibility-timeout-diagram.png)
+
+Amazon SQS supports up to 12 hours’ maximum visibility timeout.
+
+
+#### Queue Operations, Unique IDs, and Metadata
+
+#### Queue and Message Identifiers
+
+Amazon SQS uses three identifiers that you need to be familiar with: queue URLs, message IDs, and receipt handles.
+
+Your messages are identified via a globally unique ID that Amazon SQS returns when the message is delivered to the queue. 
+
+Each time you receive a message from a queue, you receive a receipt handle for that message. The handle is associated with the act of receiving the message, not with the message itself.
+
+#### Message Attributes
+
+Message attributes allow you to provide structured metadata items (such as timestamps, geospatial data, signatures, and identifiers) about the message. 
+
+#### Long Polling
+
+With long polling, you send a WaitTimeSeconds argument to ReceiveMessage of up to 20 seconds. 
+
+#### Dead Letter Queues
+
+A dead letter queue is a queue that other (source) queues can target to send messages that for some reason could not be successfully processed. A primary benefit of using a dead letter queue is the ability to sideline and isolate the unsuccessfully processed messages.
+
+#### Access Control
+
+Amazon SQS Access Control allows you to assign policies to queues that grant specific interactions to other accounts without that account having to assume IAM roles from your account. These policies are written in the same JSON language as IAM. 
+
+### Amazon Simple Workflow Service (Amazon SWF)
+
+#### Workflows
+
+Using Amazon SWF, you can implement distributed, asynchronous applications as workflows.
+
+##### Workflow Domains
+
+You must specify a domain for all the components of a workflow, such as the workflow type and activity types. Workflows in different domains cannot interact with one another.
+
+##### Workflow History
+
+#### Actors
+
+Actors can be workflow starters, deciders, or activity workers. These actors communicate with Amazon SWF through its API.
+
+#### Tasks
+
+Three types of tasks: activity tasks, AWS Lambda tasks, and decision tasks.
+
+#### Task Lists
+
+#### Long Polling
+
+#### Object Identifiers
