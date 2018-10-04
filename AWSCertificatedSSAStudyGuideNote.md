@@ -1228,3 +1228,84 @@ Three types of tasks: activity tasks, AWS Lambda tasks, and decision tasks.
 #### Long Polling
 
 #### Object Identifiers
+
+#### Workflow Execution Closure
+
+#### Lifecycle of a Workflow Execution
+
+### Amazon Simple Notification Service (Amazon SNS)
+
+Amazon SNS follows the publish-subscribe (pub-sub) messaging paradigm, with notifications being delivered to clients using a push mechanism that eliminates the need to check periodically (or poll) for new information and updates.
+
+Amazon SNS consists of two types of clients: publishers and subscribers (sometimes known as producers and consumers). 
+
+![Diagram of topic delivery](https://docs.aws.amazon.com/sns/latest/dg/images/sns-how-works.png)
+
+#### Common Amazon SNS Scenarios
+
+##### Fanout
+
+This allows for parallel asynchronous processing. 
+
+![Diagram of fanout scenario](https://docs.aws.amazon.com/sns/latest/dg/images/sns-fanout.png)
+
+##### Application and System Alerts
+
+##### Push Email and Text Messaging
+
+##### Mobile Push Notifications
+
+### Exam Essentials
+
+* Know how to use Amazon SQS.
+* Understand Amazon SQS visibility timeouts.
+* Know how to use Amazon SQS long polling. 
+* Know how to use Amazon SWF.
+* Know the basics of an Amazon SWF workflow.
+* Understand the different Amazon SWF actors.
+* Understand Amazon SNS basics.
+* Know the different protocols used with Amazon SNS.
+
+
+
+<span id="chapter-9"></span>
+## Chapter 9 - Domain Name System (DNS) and Amazon Route 53
+
+### Domain Name System (DNS)
+
+DNS is a globally-distributed service that is foundational to the way people use the Internet. DNS uses a hierarchical name structure, and different levels in the hierarchy are each separated with a dot (.). 
+
+#### Domain Name System (DNS) Concepts
+
+##### Top-Level Domains (TLDs)
+
+Each domain name becomes registered in a central database, known as the WhoIS database.
+
+##### Domain Names
+
+##### IP Addresses
+
+##### Hosts
+
+##### Subdomains
+
+The difference between a host name and a subdomain is that a host defines a computer or resource, while a subdomain extends the parent domain. 
+
+##### Fully Qualified Domain Name (FQDN)
+
+##### Name Servers
+
+A name server is a computer designated to translate domain names into IP addresses.
+
+##### Zone Files
+
+A zone file is a simple text file that contains the mappings between domain names and IP addresses.
+
+Zone files reside in name servers and generally define the resources available under a specific domain, or the place where one can go to get that information.
+
+##### Top-Level Domain (TLD) Name Registrars
+
+A domain name registrar is an organization or commercial entity that manages the reservation of Internet domain names. 
+
+#### Steps Involved in Domain Name System (DNS) Resolution
+
