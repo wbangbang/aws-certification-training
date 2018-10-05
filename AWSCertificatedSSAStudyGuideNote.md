@@ -1309,3 +1309,74 @@ A domain name registrar is an organization or commercial entity that manages the
 
 #### Steps Involved in Domain Name System (DNS) Resolution
 
+Root Server -> Top-Level Domain (TLD) Servers -> Domain-Level Name Servers
+
+In almost all cases, the requester will be what is called a **resolving name server**, which is a server that is configured to ask other servers questions. Its primary function is to act as an intermediary for a user, caching previous query results to improve speed and providing the addresses of appropriate root servers to resolve new requests.
+
+#### Record Types
+
+Each zone file contains records. In its simplest form, a record is a single mapping between a resource and a name.
+
+##### Start of Authority (SOA) Record
+
+A Start of Authority (SOA) record is mandatory in all zone files, and it identifies the base DNS information about the domain. Each zone contains a single SOA record.
+
+##### A and AAAA
+
+##### Canonical Name (CNAME)
+
+##### Mail Exchange (MX)
+
+##### Name Server (NS)
+
+##### Pointer (PTR)
+
+##### Sender Policy Framework (SPF)
+
+##### Text (TXT)
+
+##### Service (SRV)
+
+### Amazon Route 53 Overview
+
+Amazon Route 53 performs three main functions:
+
+* Domain registration
+* DNS service
+* Health checking
+
+#### Domain Registration
+
+#### Domain Name System (DNS) Service
+
+#### Hosted Zones
+
+* private
+* public
+
+> Tip: You can use Amazon S3 to host your static website at the hosted zone (for example, domain.com) and redirect all requests to a subdomain (for example, www.domain.com). Then, in Amazon Route 53, you can create an alias resource record that sends requests for the root domain to the Amazon S3 bucket.
+
+> Tip: Use an alias record, not a CNAME, for your hosted zone. CNAMEs are not allowed for hosted zones in Amazon Route 53.
+
+> Tip: Do not use A records for subdomains (for example, www.domain.com), as they refer to hardcoded IP addresses. Instead, use Amazon Route 53 alias records or traditional CNAME records to always point to the right resource, wherever your site is hosted, even when the physical server has changed its IP address.
+
+#### Supported Record Types
+
+When you create a resource record set, you choose a routing policy, which determines how Amazon Route 53 responds to queries. Routing policy options are simple, weighted, latencybased, failover, and geolocation.  
+
+#### Amazon Route 53 Enables Resiliency
+
+### Exam Essentials
+
+* Understand what DNS is.
+* Know how DNS registration works.
+* Remember the steps involved in DNS resolution.
+* Remember the different record types.
+* Remember the different routing policies.
+
+
+
+<span id="chapter-9"></span>
+## Chapter 10 - Amazon ElastiCache
+
+### In-Memory Caching
