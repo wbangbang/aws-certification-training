@@ -1376,7 +1376,7 @@ When you create a resource record set, you choose a routing policy, which determ
 
 
 
-<span id="chapter-9"></span>
+<span id="chapter-10"></span>
 ## Chapter 10 - Amazon ElastiCache
 
 ### In-Memory Caching
@@ -1393,4 +1393,54 @@ You should evaluate the access pattern of the data before you decide to store it
 
 #### Nodes and Clusters
 
+#### Memcached Auto Discovery
 
+For Memcached clusters partitioned across multiple nodes, Amazon ElastiCache supports Auto Discovery with the provided client library.
+
+#### Scaling
+
+##### Horizontal Scaling
+
+With Memcached, you can partition your data and scale horizontally to 20 nodes or more. With Auto Discovery, your application can discover Memcached nodes that are added or removed from a cluster.
+
+A Redis cluster consists of a single cache node that is handling read and write transactions. Additional clusters can be created and grouped into a Redis replication group.
+
+##### Vertical Scaling
+
+You can quickly spin up a new cluster with the desired cache node types and start redirecting traffic to the
+new cluster. It’s important to understand that a new Memcached cluster always starts empty, while a Redis cluster can be initialized from a backup.
+
+#### Replication and Multi-AZ
+
+Cache clusters running Redis support the concept of replication groups. A replication group consists of up to six clusters, with five of them designated as read replicas. 
+
+##### Multi-AZ Replication Groups
+
+It’s important to keep in mind that replication between the clusters is performed asynchronously and there will be a small delay before data is available on all cluster nodes.
+
+#### Backup and Recovery
+
+Snapshots cannot be created for clusters using the Memcached engine because it is a purely in-memory key/value store and always starts empty. 
+
+Snapshots require compute and memory resources to perform and can potentially have a performance impact on heavily used clusters. 
+
+#### Access Control
+
+### Exam Essentials
+
+* Know how to use Amazon ElastiCache.
+* Understand when to use a specific cache engine.
+* Understand how to scale a Redis cluster horizontally. 
+* Understand how to scale a Memcached cluster horizontally.
+* Know how to back up your Amazon ElastiCache cluster.
+
+
+
+<span id="chapter-11"></span>
+## Chapter 11 - Additional Key Services
+
+### Storage and Content Delivery
+
+#### Amazon CloudFront
+
+Amazon CloudFront is a global Content Delivery Network (CDN) service.
