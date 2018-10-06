@@ -1380,3 +1380,17 @@ When you create a resource record set, you choose a routing policy, which determ
 ## Chapter 10 - Amazon ElastiCache
 
 ### In-Memory Caching
+
+Memcached is a simple-to-use in-memory key/value store that can be used to store arbitrary types of data. It is one of the most popular cache engines. Redis is a flexible in-memory data structure store that can be used as a cache, database, or even as a message broker. Amazon ElastiCache allows developers to easily deploy and manage cache environments running either Memcached or Redis.
+
+### Amazon ElastiCache
+
+#### Data Access Patterns
+
+You should evaluate the access pattern of the data before you decide to store it in cache. 
+
+#### Cache Engines
+
+#### Nodes and Clusters
+
+
