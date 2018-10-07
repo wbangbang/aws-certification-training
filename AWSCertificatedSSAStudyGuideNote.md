@@ -1444,3 +1444,107 @@ Snapshots require compute and memory resources to perform and can potentially ha
 #### Amazon CloudFront
 
 Amazon CloudFront is a global Content Delivery Network (CDN) service.
+
+##### Overview
+
+CDNs use Domain Name System (DNS) geo-location to determine the geographic location of each request for a web page or other content, then they serve that content from edge caching servers closest to that location
+instead of the original web server.
+
+Amazon CloudFront supports all content that can be served over HTTP or HTTPS.
+
+##### Amazon CloudFront Basics
+
+**Distributions** To use Amazon CloudFront, you start by creating a distribution, which is
+identified by a DNS domain name such as d111111abcdef8.cloudfront.net. 
+
+**Origins** When you create a distribution, you must specify the DNS domain name of the origin, from which you want Amazon CloudFront to get the definitive version of your objects (web files). 
+
+**Cache Control** Once requested and served from an edge location, objects stay in the cache until they expire or are evicted to make room for more frequently requested content. By default, objects expire from the cache after 24 hours.
+
+Optionally, you can control how long objects stay in an Amazon CloudFront cache before expiring - you can choose to use Cache-Control headers set by your origin server or you can set the minimum, maximum, and default Time to Live (TTL) for objects in your Amazon CloudFront distribution.
+
+You can also remove copies of an object from all Amazon CloudFront edge locations at any time by calling the invalidation Application Program Interface (API).
+
+Instead of invalidating objects manually or programmatically, it is a best practice to use a version identifier as part of the object (file) path name.
+
+##### Amazon CloudFront Advanced Features
+
+**Dynamic Content, Multiple Origins, and Cache Behaviors** 
+
+A cache behavior lets you configure a variety of Amazon CloudFront functionalities for a given URL path pattern for files on your website. 
+
+Cache behaviors are applied in order; if a request does not match the first path pattern, it drops down to the next path pattern. 
+
+**Private Content**
+
+Amazon CloudFront provides several mechanisms to allow you to serve private content. These include:
+
+* Signed URLs
+* Signed Cookies
+* Origin Access Identities (OAI)
+
+##### Use Cases
+
+There are several use cases where Amazon CloudFront is an excellent choice, including, but not limited to:
+
+* Serving the Static Assets of Popular Websites 
+* Serving a Whole Website or Web Application
+* Serving Content to Users Who Are Widely Distributed Geographically 
+* Distributing Software or Other Large Files
+* Serving Streaming Media
+
+There are also use cases where CloudFront is not appropriate, including:
+
+* All or Most Requests Come From a Single Location
+* All or Most Requests Come Through a Corporate VPN
+
+#### AWS Storage Gateway
+
+AWS Storage Gateway is a service connecting an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization’s onpremises IT environment and AWS storage infrastructure.
+
+##### Overview
+
+There are three configurations for AWS Storage Gateway:
+
+**Gateway-Cached Volumes**
+All data stored on a Gateway-Cached volume is moved to Amazon S3, while recently read data is retained in local storage to provide low-latency access. While each volume is limited to a maximum size of 32TB, a single gateway can support up to 32 volumes for a maximum storage of 1 PB.
+
+All Gateway-Cached volume data and snapshot data is transferred to Amazon S3 over encrypted Secure Sockets Layer (SSL) connections. It is encrypted at rest in Amazon S3 using Server-Side Encryption (SSE).
+
+**Gateway-Stored Volumes**
+Gateway-Stored volumes allow you to store your data on your on-premises storage and asynchronously back up that data to Amazon S3. The data is backed up in the form of Amazon Elastic Block Store (Amazon EBS) snapshots. While each volume is limited to a maximum size of 16TB, a single gateway can support up to 32 volumes for a maximum storage of 512TB.
+
+**Gateway Virtual Tape Libraries (VTL)**
+The VTL interface lets you leverage your existing tape-based backup application infrastructure to store data on virtual tape cartridges that you create on your Gateway-VTL.
+
+A gateway can contain up to 1,500 tapes (1 PB) of total tape data. 
+
+When your tape software ejects a tape, it is archived on a Virtual Tape Shelf (VTS) and stored in Amazon Glacier.
+
+##### Use Cases
+
+* Gateway-Cached volumes enable you to expand local storage hardware to Amazon S3, allowing you to store much more data without drastically increasing your storage hardware or changing your storage processes.
+* Gateway-Stored volumes provide seamless, asynchronous, and secure backup of your onpremises storage without new processes or hardware.
+* Gateway-VTLs enable you to keep your current tape backup software and processes while storing your data more cost-effectively and simply on the cloud.
+
+### Security
+
+#### AWS Directory Service
+
+AWS Directory Service is a managed service offering that provides directories that contain information about your organization, including users, groups, computers, and other resources.
+
+##### Overview
+
+Three directory types:
+
+* AWS Directory Service for Microsoft Active Directory (Enterprise Edition)
+* Simple AD
+* AD Connector
+
+##### Use Cases
+
+* AWS Directory Service for Microsoft Active Directory (Enterprise Edition) is your best choice if you have more than 5,000 users and need a trust relationship set up between an AWS-hosted directory and your on-premises directories.
+* In most cases, Simple AD is the least expensive option and your best choice if you have 5,000 or fewer users and don’t need the more advanced Microsoft Active Directory features.
+* AD Connector is your best choice when you want to use your existing onpremises directory with AWS cloud services.
+
+#### AWS Key Management Service (KMS) and AWS CloudHSM
