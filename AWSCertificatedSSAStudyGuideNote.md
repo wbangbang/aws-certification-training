@@ -1548,3 +1548,105 @@ Three directory types:
 * AD Connector is your best choice when you want to use your existing onpremises directory with AWS cloud services.
 
 #### AWS Key Management Service (KMS) and AWS CloudHSM
+
+Key management is the management of cryptographic keys within a cryptosystem.
+
+##### Overview
+
+AWS offers two services that provide you with the ability to manage your own symmetric or asymmetric cryptographic keys:
+
+* AWS KMS
+* AWS CloudHSM
+
+**AWS Key Management Service (AWS KMS)** is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data.
+
+Whether you are writing applications for AWS or using AWS cloud services, AWS KMS enables you to maintain control over who can use your keys and gain access to your encrypted data.
+
+* *Customer Managed Keys* AWS KMS uses a type of key called a Customer Master Key (CMK) to encrypt and decrypt data. They can be used inside of AWS KMS to encrypt or decrypt up to 4 KB of data directly. They can also be used to encrypt generated data keys that are then used to encrypt or decrypt larger amounts of data outside of the service. CMKs can never leave AWS KMS unencrypted, but data keys can leave the service unencrypted.
+* *Data Keys* You use data keys to encrypt large data objects within your own application outside AWS KMS. AWS KMS returns a plaintext version of the key and ciphertext that contains the key encrypted under the specified CMK.Security best practices suggest that you should remove the plaintext key from memory as soon as is practical after use.
+* *Envelope Encryption* AWS KMS uses envelope encryption to protect data.
+* *Encryption Context* All AWS KMS cryptographic operations accept an optional key/value map of additional contextual information.
+
+**AWS CloudHSM** An HSM is a hardware appliance that provides secure key storage and cryptographic operations within a tamper-resistant hardware module. 
+
+AWS CloudHSM allows you to protect your encryption keys within HSMs that are designed and validated to government standards for secure key management. 
+
+##### Use Cases
+
+The AWS key management services address several security needs that would require extensive effort to deploy and manage otherwise, including, but not limited to:
+
+* Scalable Symmetric Key Distribution
+* Government-Validated Cryptography
+
+#### AWS CloudTrail
+
+AWS CloudTrail provides visibility into user activity by recording API calls made on your account.
+
+##### Overview
+
+A trail is a configuration that enables logging of the AWS API activity and related events in your account.
+
+You can create two types of trails:
+
+* A Trail That Applies to All Regions 
+* A Trail That Applies to One Region
+
+AWS CloudTrail typically delivers log files within 15 minutes of an API call. In addition, the service publishes new log files multiple times an hour, usually about every five minutes.
+
+##### Use Cases
+
+* External Compliance Audits
+* Unauthorized Access to Your AWS Account
+
+### Analytics
+
+#### Amazon Kinesis
+
+##### Overview
+
+Amazon Kinesis is a streaming data platform consisting of three services addressing different real-time streaming data challenges:
+
+* Amazon Kinesis Firehose: A service enabling you to load massive volumes of streaming data into AWS
+* Amazon Kinesis Streams: A service enabling you to build custom applications for more complex analysis of streaming data in real time
+* Amazon Kinesis Analytics: A service enabling you to easily analyze streaming data real time with standard SQL
+
+**Amazon Kinesis Firehose** 
+
+![Amazon Kinesis Firehose](https://cdn-images-1.medium.com/max/1600/1*nvcEq5asDwetCdRZ2VbYyg.png)
+
+**Amazon Kinesis Streams**
+
+![Amazon Kinesis Streams](https://dmhnzl5mp9mj6.cloudfront.net/bigdata_awsblog/images/Markus%20Python%20image%201.png)
+
+##### Use Cases
+
+* Data Ingestion
+* Real-Time Processing of Massive Data Streams
+
+It’s good to remember that while Amazon Kinesis is ideally suited for ingesting and processing streams of data, it is less appropriate for batch jobs such as nightly Extract, Transform, Load (ETL) processes. Instead, consider AWS Data Pipeline.
+
+#### Amazon Elastic MapReduce (Amazon EMR)
+
+##### Overview
+
+When you launch an Amazon EMR cluster, you specify several options, the most important being:
+
+* The instance type of the nodes
+* The number of nodes
+* The version of Hadoop
+* Additional tools or applications like Hive, Pig, Spark
+
+There are two types of storage that can be used with Amazon EMR:
+
+* HDFS - Amazon EMR can use Amazon EC2 instance storage or Amazon EBS for HDFS. (for persistent cluster)
+* EMRFS - EMRFS is an implementation of HDFS that allows clusters to store data on Amazon S3. (for transient cluster)
+
+A key factor driving the type of storage a cluster uses is whether the cluster is persistent or transient.
+
+##### Use Cases
+
+* Log Processing
+* Clickstream Analysis
+* Genomics and Life Sciences
+
+#### AWS Data Pipeline
