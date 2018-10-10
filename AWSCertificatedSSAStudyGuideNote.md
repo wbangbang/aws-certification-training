@@ -1650,3 +1650,90 @@ A key factor driving the type of storage a cluster uses is whether the cluster i
 * Genomics and Life Sciences
 
 #### AWS Data Pipeline
+
+AWS Data Pipeline is a web service that helps you reliably process and move data between different AWS compute and storage services, and also on-premises data sources, at specified intervals.
+
+##### Overview
+
+The pipeline interacts with data stored in data nodes. 
+
+The pipeline will execute activities that represent common scenarios, such as moving data from one location to another, running Hive queries, and so forth.
+
+If an activity fails, retry is automatic. The activity will continue to retry up to the limit you configure. 
+
+##### Use Cases
+
+AWS Data Pipeline can be used for virtually any batch mode ETL process.
+
+![Example](https://dmhnzl5mp9mj6.cloudfront.net/bigdata_awsblog/images/Wangechi_Workflow_Image_6.png)
+
+#### AWS Import/Export
+
+AWS Import/Export is a service that accelerates transferring large amounts of data into and out of AWS using physical storage appliances, bypassing the Internet.
+
+##### Overview
+
+Two features:
+
+* **AWS Snowball** AWS Snowball uses Amazon-provided shippable storage appliances shipped through UPS. At the time of this writing, AWS Snowballs come in two sizes: 50TB and 80TB.
+* **AWS Import/Export Disk** AWS Import/Export Disk supports transfers data directly onto and off of storage devices you own using the Amazon high-speed internal network. AWS Import/Export Disk has an upper limit of 16TB.
+
+##### Use Cases
+
+AWS Import/Export can be used for just about any situation where you have more data to move than you can get through your Internet connection in a reasonable time.
+
+### DevOps
+
+#### AWS OpsWorks
+
+AWS OpsWorks supports both Linux or Windows servers, including existing Amazon EC2 instances or servers running in your own data center.
+
+##### Overview
+
+![Simple application server stack](https://docs.aws.amazon.com/opsworks/latest/userguide/images/php_walkthrough_arch.png)
+
+This group of resources is typically called a stack. AWS OpsWorks provides a simple and flexible way to create and manage stacks and applications.
+
+The stack is the core AWS OpsWorks component. It is basically a container for AWS resources that have a
+common purpose and make sense to be logically managed together.
+
+> Note: You can use AWS OpsWorks or IAM to manage user permissions. Note that the two options are not mutually exclusive; it is sometimes desirable to use both.
+
+You define the elements of a stack by adding one or more layers. A layer represents a set of resources that serve a particular purpose.
+
+An instance represents a single computing resource, such as an Amazon EC2 instance. It defines the resource’s basic configuration, such as operating system and size.
+
+You store applications and related files in a repository. Each application is represented by an app, which specifies the application type and contains the information that is needed to deploy the application from the repository to your instances, such as the repository URL and password.
+
+AWS OpsWorks sends all of your resource metrics to Amazon CloudWatch.
+
+##### Use Cases
+
+* Host Multi-Tier Web Applications
+* Support Continuous Integration
+
+#### AWS CloudFormation
+
+##### Overview
+
+When you use AWS CloudFormation, you work with templates and stacks.
+
+You create AWS CloudFormation templates to define your AWS resources and their properties. A template is a text file whose format complies with the JSON standard.
+
+When you use AWS CloudFormation, you manage related resources as a single unit called a stack.
+
+![creating a stack workflow](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/create-stack-diagram.png)
+
+To update a stack, create a change set by submitting a modified version of the original stack template, different input parameter values, or both.
+
+![updating a stack workflow](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/update-stack-diagram.png)
+
+> Note: If you want to delete a stack but still retain some resources in that stack, you can use a deletion policy to retain those resources. If a resource has no deletion policy, AWS CloudFormation deletes the resource by default.
+
+##### Use Cases
+
+* Quickly Launch New Test Environments
+* Reliably Replicate Configuration Between Environments
+* Launch Applications in New AWS Regions
+
+#### AWS Elastic Beanstalk
