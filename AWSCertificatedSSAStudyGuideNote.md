@@ -1737,3 +1737,97 @@ To update a stack, create a change set by submitting a modified version of the o
 * Launch Applications in New AWS Regions
 
 #### AWS Elastic Beanstalk
+
+Developers can simply upload their application code, and the service automatically handles all of the details, such as resource provisioning, load balancing, Auto Scaling, and monitoring.
+
+##### Overview
+
+In AWS Elastic Beanstalk, an application is conceptually similar to a folder.
+
+Key components:
+
+* An *application version* refers to a specific, labeled iteration of deployable code for a web application.
+* An *environment* is an application version that is deployed onto AWS resources. 
+* An *environment configuration* identifies a collection of parameters and settings that define how an environment and its associated resources behave.
+
+An *AWS Elastic Beanstalk application* is the logical collection of these AWS Elastic Beanstalk components.
+
+##### Key Features
+
+With AWS Elastic Beanstalk, organizations can deploy an application quickly while retaining as much control as they want to have over the underlying infrastructure.
+
+#### AWS Trusted Advisor
+
+AWS Trusted Advisor inspects your AWS environment and makes recommendations when opportunities exist to save money, improve system availability and performance, or help close security gaps.
+
+AWS Trusted Advisor provides best practices in four categories: cost optimization, security, fault tolerance, and performance improvement. 
+
+![AWS Trusted Advisor Console dashboard](https://d3ulk6ur3a3ha.cloudfront.net/Image_Thumbs/TrustedAdvisor/ConsoleVersion/dashboard.png)
+
+All AWS customers have access to four AWS Trusted Advisor checks at no cost. The four standard AWS Trusted Advisor checks are:
+
+* Service Limits
+* Security Groups–Specific Ports Unrestricted
+* IAM Use
+* MFA on Root Account 
+
+#### AWS Config
+
+AWS Config is a fully managed service that provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance.
+
+##### Overview
+
+When you turn on AWS Config, it first discovers the supported AWS resources that exist in your account and generates a configuration item for each resource. A configuration item represents a point-in-time view of the various attributes of a supported AWS resource that exists in your account.
+
+AWS Config will generate configuration items when the configuration of a resource changes, and it maintains historical records of the configuration items of your resources from the time you start the configuration recorder. The configuration recorder stores the configurations of the supported resources in your account as configuration items.
+
+An AWS Config Rule represents desired configuration settings for specific AWS resources or for an entire AWS
+account.
+
+##### Use cases
+
+* Discovery
+* Change Management
+* Continuous Audit and Compliance
+* Troubleshooting
+* Security and Incident Analysis
+
+##### Key features
+
+AWS Config resolves this previous need and automatically records resource configuration information and will evaluate any rules that are triggered by a change. 
+
+### Exam Essentials
+
+* Know the basic use cases for amazon CloudFront.
+* Know how amazon CloudFront works.
+* Know how to create an amazon CloudFront distribution and what types of origins are supported.
+* Know how to use amazon CloudFront for dynamic content and multiple origins.
+* Know what mechanisms are available to serve private content through amazon CloudFront.
+* Know the three configurations of AWS storage gateway and their use cases.
+* Understand the value of AWS Directory Service.
+* Know the AWS Directory Service Directory types. 
+* Know when you should use AWS Directory Service for Microsoft Active Directory.
+* Understand key management.
+* Understand when you should use AWS KMS. 
+* Understand when you should use AWS CloudHSM.
+* Understand the value of AWS CloudTrail.
+* Know the three services of Amazon kinesis and their use cases.
+* Know what service Amazon EMR provides.
+* Know the difference between persistent and transient clusters.
+* Know the use cases for Amazon EMR.
+* Know the use cases for AWS data pipeline.
+* Know the types of AWS import/export services and the possible sources/destinations of each.
+* Understand the basics of AWS opsworks.
+* Understand the value of AWS cloudformation. 
+* Understand the value of AWS elastic beanstalk.
+* Understand the components of AWS elastic beanstalk.
+* Understand the value of AWS config.
+
+
+
+
+<span id="chapter-12"></span>
+## Chapter 12 - Security on AWS
+
+### Shared Responsibility Model
+
