@@ -1831,3 +1831,54 @@ AWS Config resolves this previous need and automatically records resource config
 
 ### Shared Responsibility Model
 
+![The shared responsibility model](https://d1.awsstatic.com/security-center/Shared_Responsibility_Model_V2.59d1eccec334b366627e9295b304202faf7b899b.jpg)
+
+### AWS Compliance Program
+
+### AWS Global Infrastructure Security
+
+#### Physical and Environmental Security
+
+* Fire Detection and Suppression
+* Power
+* Climate and Temperature
+* Management
+* Storage Device Decommissioning
+
+#### Business Continuity Management
+
+* Availability
+* Incident Response
+* Communication
+
+#### Network Security
+
+* Secure Network Architecture
+* Secure Access Points
+* Transmission Protection
+
+#### Network Monitoring and Protection
+
+* Distributed Denial of Service (DDoS) Attacks
+* Man in the Middle (MITM) Attacks
+* IP Spoofing
+* Port Scanning
+* Packet Sniffing by Other Tenants
+
+> Tip: Attacks such as Address Resolution Protocol (ARP) cache poisoning do not work within Amazon EC2 and Amazon VPC.
+
+### AWS Account Security Features
+
+#### AWS Credentials
+
+| Credential Type | Use | Description |
+| :-------------- | :-- | :---------- |
+| Passwords       | AWS root account or IAM user account login to the AWS Management Console | A string of characters used to log in to your AWS account or IAM account. AWS passwords must be a minimum of 6 characters and may be up to 128 characters. |
+| MFA             | AWS root account or IAM user account login to the AWS Management Console | A six-digit, single-use code that is required in addition to your password to log in to your AWS account or IAM user account. |
+| Access Keys     | Digitally-signed requests to AWS APIs | Includes an access key ID and a secret access key. You use access keys to sign programmatic requests digitally that you make to AWS. |
+| Key Pairs       | SSH login to Amazon EC2 instances Amazon CloudFront-signed URLs | A key pair is required to connect to an Amazon EC2 instance launched from a public AMI. The keys that Amazon EC2 uses are 1024-bit SSH-2 RSA keys. You can have a key pair generated automatically for you when you launch the instance, or you can upload your own. |
+| X.509 Certificates | Digitally signed SOAP requests to AWS APIs SSL server certificates for HTTPS | X.509 certificates are only used to sign SOAP-based requests (currently used only with Amazon Simple Storage Service [Amazon S3]). You can have AWS create an X.509 certificate and private key that you can download, or you can upload your own certificate by using the Security Credentials page. |
+
+
+
+
