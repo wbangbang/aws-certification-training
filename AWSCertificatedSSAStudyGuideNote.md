@@ -1879,6 +1879,13 @@ AWS Config resolves this previous need and automatically records resource config
 | Key Pairs       | SSH login to Amazon EC2 instances Amazon CloudFront-signed URLs | A key pair is required to connect to an Amazon EC2 instance launched from a public AMI. The keys that Amazon EC2 uses are 1024-bit SSH-2 RSA keys. You can have a key pair generated automatically for you when you launch the instance, or you can upload your own. |
 | X.509 Certificates | Digitally signed SOAP requests to AWS APIs SSL server certificates for HTTPS | X.509 certificates are only used to sign SOAP-based requests (currently used only with Amazon Simple Storage Service [Amazon S3]). You can have AWS create an X.509 certificate and private key that you can download, or you can upload your own certificate by using the Security Credentials page. |
 
+### AWS Cloud Service-Specific Security
 
+#### Compute Services
+
+##### Amazon Elastic Compute Cloud (Amazon EC2) Security
+
+* Multiple Levels of Security
+* The Hypervisor
 
 
