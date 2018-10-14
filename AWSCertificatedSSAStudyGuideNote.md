@@ -1887,5 +1887,16 @@ AWS Config resolves this previous need and automatically records resource config
 
 * Multiple Levels of Security
 * The Hypervisor
+* Instance Isolation
+* Host Operating System
+* Guest Operating System
+* Firewall
+
+![Amazon EC2 security group firewall](https://d1.awsstatic.com/aws-answers/answers-images/security-group-config.17423baeced21997af7a131760196cfed6f39bb9.png)
+
+> Tip: The default state is to deny all incoming traffic, and you should carefully plan what you will open when building and securing your applications.
+
+* API Access
+* Amazon Elastic Block Storage (Amazon EBS) Security
 
 
