@@ -1900,3 +1900,44 @@ AWS Config resolves this previous need and automatically records resource config
 * Amazon Elastic Block Storage (Amazon EBS) Security
 
 
+#### Networking
+
+##### Elastic Load Balancing Security
+
+##### Amazon Virtual Private Cloud (Amazon VPC) Security
+
+* API Access
+* Subnets and Route Tables
+* Firewall (Security Groups)
+* Network ACLs
+* Virtual Private Gateway
+* Internet Gateway
+* Dedicated Instances
+
+##### Amazon CloudFront Security
+
+#### Storage
+
+##### Amazon Simple Storage Service (Amazon S3) Security
+
+###### Data Access
+
+* IAM Policies
+* ACLs
+* Bucket Policies
+* Query String Authentication
+
+###### Data Transfer
+
+###### Data Storage
+
+###### Access Logs
+
+###### Cross-Origin Resource Sharing (CORS)
+
+##### Amazon Glacier Security
+
+
+
+
+
