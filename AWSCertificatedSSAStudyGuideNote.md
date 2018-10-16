@@ -1937,6 +1937,26 @@ AWS Config resolves this previous need and automatically records resource config
 
 ##### Amazon Glacier Security
 
+###### Data Transfer
+
+###### Data Retrieval
+
+###### Data Storage
+
+###### Data Access
+
+##### AWS Storage Gateway Security
+
+##### Data Transfer
+
+##### Data Storage
+
+#### Database
+
+##### Amazon DynamoDB Security
+
+##### Amazon Relational Database Service (Amazon RDS) Security
+
 
 
 
