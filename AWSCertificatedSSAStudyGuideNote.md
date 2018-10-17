@@ -1957,7 +1957,21 @@ AWS Config resolves this previous need and automatically records resource config
 
 ##### Amazon Relational Database Service (Amazon RDS) Security
 
+* Access Control
+	* Master user account
+	* DB security groups - DB security groups only allow access to the database server port (all others are blocked) and can be updated without restarting the Amazon RDS DB Instance.
+* Network Isolation - Run your DB Instances in an Amazon VPC.
+* Encryption - You can encrypt connections between your application and your DB Instance using SSL. 
+* Automated Backups and DB Snapshots
+* DB Instance Replication
+* Automatic Software Patching
 
+##### Amazon Redshift Security
+
+* Cluster Access
+* Data Backups
+* Data Encryption
+	
 
 
 
