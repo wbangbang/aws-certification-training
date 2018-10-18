@@ -1970,8 +1970,72 @@ AWS Config resolves this previous need and automatically records resource config
 
 * Cluster Access
 * Data Backups
-* Data Encryption
+* Data Encryption - Amazon Redshift uses a four-tier, key-based architecture for encryption. These keys consist of data encryption keys, a database key, a cluster key, and a master key.
+* Database Audit Logging
+* Automatic Software Patching
+* SSL Connections
+
+##### Amazon ElastiCache Security
+
+* Data Access - Cache Security Groups
+
+#### Application Services
+
+##### Amazon Simple Queue Service (Amazon SQS) Security
+
+* Data Access - AWS IAM
+* Encryption - Accessible via SSL-encrypted endpoints; Data stored within Amazon SQS is not encrypted by AWS.
+
+##### Amazon Simple Notification Service (Amazon SNS) Security
+
+* Data Access - Topic owners can set policies for a topic that restricts who can publish or subscribe to a topic. Additionally, topic owners can encrypt transmission by specifying that the delivery mechanism must be HTTPS.
+
+#### Analytics Services
+
+##### Amazon Elastic MapReduce (Amazon EMR) Security
+
+##### Amazon Kinesis Security
+
+#### Deployment and Management Services
+
+##### AWS Identity and Access Management (IAM) Security
+
+* Roles - Temporary security credentials provide enhanced security due to their short lifespan (the default expiration is 12 hours) and the fact that they cannot be reused after they expire.
+	* Federated (Non-AWS) User Access
+	* Security Assertion Markup Language (SAML) 2.0
+	* Cross-Account Access
+	* Applications Running on EC2 Instances That Need to Access AWS Resources
+
+#### Mobile Services
+
+##### Amazon Cognito Security
+
+With Amazon Cognito, your application communicates directly with a supported public identity provider (Amazon, Facebook, or Google) to authenticate users. Amazon Cognito does not receive or store user credentials, only the OAuth or OpenID Connect token received from the identity provider. After Amazon Cognito receives the token, it returns a new Amazon Cognito ID for the user and a set of temporary, limited-privilege AWS credentials.
+
+#### Applications
+
+##### Amazon WorkSpaces Security
+
+Amazon WorkSpaces is a managed desktop service that allows you to quickly provision cloud-based desktops for your users.
 	
+	
+### Exam Essentials
+
+* Understand the shared responsibility model.
+* Understand regions and Availability Zones. 
+* Understand High-Availability System Design within AWS. 
+* Understand the network security of AWS. 
+* Understand the use of credentials on AWS.
+* Understand the proper use of access keys. 
+* Understand the value of AWS CloudTrail. 
+* Understand the security features of Amazon EC2.
+* Understand AWS use of encryption of data in transit.
+* Know which services offer encryption of data at rest as a feature. 
 
 
+
+<span id="chapter-13"></span>
+## Chapter 13 - AWS Risk and Compliance
+
+### Overview of Compliance in AWS
 
