@@ -2039,3 +2039,43 @@ Amazon WorkSpaces is a managed desktop service that allows you to quickly provis
 
 ### Overview of Compliance in AWS
 
+#### Strong Compliance Governance
+
+### Evaluating and Integrating AWS Controls
+
+#### AWS IT Control Information
+
+* Specific Control Definition
+* General Control Standard Compliance
+
+#### AWS Global Regions
+
+### AWS Risk and Compliance Program
+
+#### Risk Management
+
+#### Control Environment
+
+#### Information Security
+
+### Exam Essentials
+
+* Understand the shared responsibility model. 
+* Remember that IT governance is the customer’s responsibility.
+* Understand how AWS provides control information.
+* Remember that AWS is very proactive about risk management.
+* Remember that the control environment is not just about technology.
+* Remember the key reports, certifications, and third-party attestations.
+
+
+
+<span id="chapter-14"></span>
+## Chapter 14 - Architecture Best Practices
+
+### Design for Failure and Nothing Fails
+
+A system is highly available when it can withstand the failure of an individual or multiple components. 
+
+
+
+
