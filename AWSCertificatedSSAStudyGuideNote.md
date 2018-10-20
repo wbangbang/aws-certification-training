@@ -2074,8 +2074,37 @@ Amazon WorkSpaces is a managed desktop service that allows you to quickly provis
 
 ### Design for Failure and Nothing Fails
 
-A system is highly available when it can withstand the failure of an individual or multiple components. 
+A system is *highly available* when it can withstand the failure of an individual or multiple components. 
 
+Single points of failure can be removed by introducing redundancy, which is having multiple resources for the same task. Redundancy can be implemented in either standby or active mode.
+
+* In standby redundancy when a resource fails, functionality is recovered on a secondary resource using a process called failover. The secondary resource can either be launched automatically only when needed (to reduce cost), or it can be already running idle (to accelerate failover and minimize disruption).Standby redundancy is often used for stateful components such as relational databases.
+* Compared to standby redundancy, active redundency can achieve better utilization and affect a smaller population when there is a failure.
+
+> Tip: One rule of thumb to keep in mind when designing architectures in the cloud is to be a pessimist; that is, assume things will fail. In other words, always design, implement, and deploy for automated recovery from failure.
+
+### Implement Elasticity
+
+*Elasticity* is the ability of a system to grow to handle increased load, whether gradually over time or in response to a sudden change in business needs. To achieve elasticity, it is important that the system be built on a scalable architecture, which can support growth in users, traffic, or data size with no drop in performance.
+
+There are generally two ways to scale an IT architecture: vertically and horizontally.
+
+* *Vertical scaling* takes place through an increase in the specifications of an individual resource (for example, upgrading a server with a larger hard drive, more memory, or a faster CPU). It is not always a cost-efficient or highly available approach. It is very easy to implement and can be sufficient for
+many use cases, especially in the short term.
+* *Horizontal scaling* takes place through an increase in the number of resources. Not all architectures are designed to distribute their workload to multiple resources, One key characteristic is the impact of stateless and stateful architectures.
+	* Stateless Applications - A stateless application needs no knowledge of the previous interactions and stores no session information. A stateless application can scale horizontally.
+	* Stateless Components
+	* Stateful Components
+
+Deployment Automation - Automating the deployment process and streamlining the configuration and build process is key to implementing elasticity.
+
+As a Solutions Architect, elasticity should be one of the fundamental design requirements when defining your architectures. Here are some questions to keep in mind when designing cloud architectures:
+
+* What components or layers in my application architecture can become elastic?
+* What will it take to make that component elastic?
+* What will be the impact of implementing elasticity to my overall system architecture?
+
+### Leverage Different Storage Options
 
 
 
