@@ -2106,5 +2106,36 @@ As a Solutions Architect, elasticity should be one of the fundamental design req
 
 ### Leverage Different Storage Options
 
+#### One Size Does Not Fit All
+
+| Sample Scenario    | Storage Option |
+| :----------------- | :------------- |
+| Your web application needs large-scale storage capacity and performance. *OR* You need cloud storage with high data durability to support backup and active archives for disaster recovery. | Amazon S3 |
+| You require cloud storage for data archiving and long-term backup. | Amazon Glacier |
+| You require a content delivery network to deliver entire websites, including dynamic, static, streaming, and interactive content using a global network of edge locations. | Amazon CloudFront |
+| You require a fast and flexible NoSQL database with a flexible data model and reliable performance. | Amazon DynamoDB |
+| You need reliable block storage to run mission-critical applications such as Oracle, SAP, Microsoft Exchange, and Microsoft SharePoint. | Amazon EBS |
+| You need a highly available, scalable, and secure MySQL database without the time-consuming administrative tasks. | Amazon RDS |
+| You need a fast, powerful, fully-managed, petabyte-scale data warehouse to support business analytics of your e-commerce application. | Amazon Redshift |
+| You need a Redis cluster to store session information for your web application. | Amazon ElastiCache |
+| You need a common file system for your application that is shared between more than one Amazon EC2 instance. | Amazon Elastic File System (Amazon EFS) |
+
+### Build Security in Every Layer
+
+#### Use AWS Features for Defense in Depth
+
+#### Offload Security Responsibility to AWS
+
+#### Reduce Privileged Access
+
+#### Security as Code
+
+You can create an AWS CloudFormation script that captures and reliably deploys your security policies. 
+
+#### Real-Time Auditing
+
+### Think Parallel
+
+
 
 
