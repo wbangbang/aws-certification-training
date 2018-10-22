@@ -2136,6 +2136,37 @@ You can create an AWS CloudFormation script that captures and reliably deploys y
 
 ### Think Parallel
 
+Accessing (retrieving and storing) data - Multi-threading your requests by using multiple concurrent threads will store or fetch the data faster than requesting it sequentially. 
 
+Processing or executing requests -  Distribute the incoming requests across multiple asynchronous web servers using a load balancer. 
+
+The beauty of the cloud shines when you combine elasticity and parallelization.
+
+### Loose Coupling Sets You Free
+
+This means that IT systems should be designed in a way that reduces interdependencies, so that a change or a failure in one component does not cascade to other components.
+
+Design system architectures with independent components that are “black boxes.” The more loosely system components are coupled, the larger they scale.
+
+A way to reduce interdependencies in a system is to allow the various components to interact with each other only through specific, technology-agnostic interfaces (such as RESTful APIs).
+
+Asynchronous integration is a common pattern for implementing loose coupling between services. 
+
+### Don’t Fear Constraints
+
+### Exam Essentials
+
+* Understand highly available architectures.
+* Understand redundancy.
+* Understand elasticity.
+* Understand vertical scaling.
+* Understand horizontal scaling.
+* Understand stateless applications
+* Understand loose coupling.
+* Understand the different storage options in AWS.
+
+
+
+<span id="chapter-14"></span>
 
 
