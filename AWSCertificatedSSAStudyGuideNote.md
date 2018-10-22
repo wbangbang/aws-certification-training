@@ -2164,9 +2164,3 @@ Asynchronous integration is a common pattern for implementing loose coupling bet
 * Understand stateless applications
 * Understand loose coupling.
 * Understand the different storage options in AWS.
-
-
-
-<span id="chapter-14"></span>
-
-
