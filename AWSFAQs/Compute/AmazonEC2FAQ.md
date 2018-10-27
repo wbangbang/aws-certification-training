@@ -9,4 +9,12 @@ Source: https://aws.amazon.com/ec2/faqs/
 	* The local instance store only persists during the life of the instance. 
 * An Amazon Machine Image (AMI) is simply a packaged-up environment that includes all the necessary bits to set up and boot your instance. Your AMIs are your unit of deployment. You might have just one AMI or you might compose your system out of several building block AMIs (e.g., webservers, appservers, and databases).
 * You are limited to running up to a total of 20 On-Demand instances across the instance family, purchasing 20 Reserved Instances, and requesting Spot Instances per your dynamic Spot limit per region. 
+
+## Billing
+
+* Billing commences when Amazon EC2 initiates the boot sequence of an AMI instance. Billing ends when the instance terminates.
+
+## Hardware Information
+
+* Amazon EC2 instances are grouped into 5 families: General Purpose, Compute Optimized, Memory Optimized, Storage Optimized and Accelerated Computing instances.
 	
