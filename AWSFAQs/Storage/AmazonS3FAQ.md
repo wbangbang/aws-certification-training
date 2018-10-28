@@ -79,7 +79,35 @@ Source: https://aws.amazon.com/s3/faqs/
 
 ## Amazon S3 Transfer Acceleration
 
-* 
+* Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket. S3 Transfer Acceleration leverages Amazon CloudFront’s globally distributed AWS Edge Locations. 
+
+## Storage Management
+
+### S3 Object Tagging
+
+* S3 object tags are key-value pairs applied to S3 objects which can be created, updated or deleted at any time during the lifetime of the object. With these, you’ll have the ability to create Identity and Access Management (IAM) policies, setup S3 Lifecycle policies, and customize storage metrics. Up to ten tags can be added to each S3 object.
+* These tags allow you to control access to objects tagged with specific key-value pairs, allowing you to further secure confidential data for only a select group or user. Object tags can also be used to label objects that belong to a specific project or business unit, which could be used in conjunction with S3 Lifecycle policies or with S3 Cross-Region Replication.
+
+### Storage Class Analysis
+
+* With Storage Class Analysis, you can analyze storage access patterns and transition the right data to the right storage class. 
+
+### S3 Inventory
+
+* The S3 Inventory report provides a scheduled alternative to Amazon S3’s synchronous List API. You can configure S3 Inventory to provide a CSV or ORC file output of your objects and their corresponding metadata on a daily or weekly basis for an S3 bucket or prefix.
+
+### S3 Lifecycle Management
+
+* S3 Lifecycle management provides the ability to define the lifecycle of your object with a predefined policy and reduce your cost of storage.
+* You can set an S3 Lifecycle expiration policy to remove objects from your buckets after a specified number of days. 
+
+### Cross-Region Replication
+
+* CRR is an Amazon S3 feature that automatically replicates data between AWS Regions.
+* CRR is configured at the S3 bucket level. Versioning must be enabled for both the source and destination buckets to enable CRR.
+* Objects remain encrypted throughout the CRR process.
+* You can set up CRR across AWS accounts to store your replicated data in a different account in the target region. 
+
 
 
 
