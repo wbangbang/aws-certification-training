@@ -112,3 +112,157 @@ AWS CloudFormation - You can describe the AWS resources, and any associated depe
 
 **AWS Lambda Scheduled events**: These events allow you to create a Lambda function and direct AWS Lambda to execute it on a regular schedule.
 
+### Loose Coupling
+
+As application complexity increases, a desirable attribute of an IT system is that itcan be broken into smaller, loosely coupled components.
+
+#### Well-Defined Interfaces
+
+A way to reduce interdependencies in a system is to allow the various components to interact with each other only through specific, technologyagnostic interfaces (e.g., RESTful APIs). In that way, technical implementation detail is hidden so that teams can modify the underlying implementation without affecting other components.
+
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+
+#### Service Discovery
+
+Applications that are deployed as a set of smaller services will depend on the ability of those services to interact with each other. Apart from hiding complexity, this also allows infrastructure details to change at any time.
+
+For an Amazon EC2 hosted service a simple way to achieve service discovery is through the Elastic Load Balancing service.
+
+Another option would be to use a service registration and discovery method to allow retrieval of the endpoint IP addresses and port number of any given service. Because service discovery becomes the glue between the components, it is important that it is highly available and reliable.
+
+#### Asynchronous Integration
+
+Asynchronous integration is another form of loose coupling between services. This model is suitable for any interaction that does not need an immediate response and where an acknowledgement that a request has been registered will suffice. It involves one component that generates events and another that
+consumes them. 
+
+A front end application inserts jobs in a queue system like Amazon SQS. A back-end system retrieves those jobs and processes them at its own pace.
+
+An API generates events and pushes them into Amazon Kinesis streams. A back-end application processes these events in batches to create aggregated time-series data stored in a database.
+
+Multiple heterogeneous systems use Amazon SWF to communicate the flow of work between them without directly interacting with each other.
+
+AWS Lambda functions can consume events from a variety of AWS sources (e.g., Amazon DynamoDB update streams, Amazon S3 event notifications, etc.). 
+
+#### Graceful Failure
+
+Another way to increase loose coupling is to build applications in such a way that they handle component failure in a graceful manner.
+
+A request that fails can be retried with an exponential backoff and Jitter strategy or it could be stored in a queue for later processing. 
+
+The Amazon Route 53 DNS failover feature also gives you the ability to monitor your website and automatically route your visitors to a backup site if your primary site becomes unavailable. 
+
+### Services, Not Servers
+
+#### Managed Services
+
+On AWS, there is a set of services that provide building blocks that developers can consume to power their applications. 
+
+#### Serverless Architectures
+
+It is possible to build both event-driven and synchronous services for mobile, web, analytics, and the Internet of Things (IoT) without managing any server infrastructure.
+
+You can upload your code to the AWS Lambda compute service and the service can run the code on your behalf using AWS infrastructure. 
+
+By using Amazon API Gateway, you can develop virtually infinitely scalable synchronous APIs powered by AWS Lambda.
+
+When it comes to mobile apps, there is one more way to reduce the surface of a server-based infrastructure. You can utilize Amazon Cognito, so that you don’t have to manage a back end solution to handle user authentication, network state, storage, and sync.
+
+### Databases
+
+#### Relational Databases
+
+RDS.
+
+##### Scalability
+
+Relational databases can scale vertically (e.g., by upgrading to a larger Amazon RDS DB instance or adding more and faster storage). In addition, consider the use of Amazon RDS for Aurora, which is a database engine designed to deliver much higher throughput compared to standard MySQL running on the same hardware. For read-heavy applications, you can also horizontally scale beyond the capacity constraints of a single DB instance by creating one or more read replicas. 
+
+Relational database workloads that need to scale their write capacity beyond the constraints of a single DB instance require a different approach called data partitioning or sharding. With this model, data is split across multiple database schemas each running in its own autonomous primary DB instance
+
+##### High Availability
+
+For any production relational database, we recommend the use of the Amazon RDS Multi-AZ deployment feature, which creates a synchronously replicated standby instance in a different Availability Zone (AZ). 
+
+##### Anti-Patterns
+
+If your application primarily indexes and queries data with no need for joins or complex transactions, consider a NoSQL database instead. If you have large binary files (audio, video, and image), it will be more efficient to store the actual files in the Amazon Simple Storage Service (Amazon S3) and only hold the metadata for the files in your database. 
+
+#### NoSQL Databases
+
+DynamoDB.
+
+##### Scalability
+
+NoSQL database engines will typically perform data partitioning and replication to scale both the reads and the writes in a horizontal fashion. Amazon DynamoDB in particular manages table partitioning for you automatically, adding new partitions as your table grows in size or as read- and write-provisioned capacity changes.
+
+##### High Availability
+
+The Amazon DynamoDB service synchronously replicates data across three facilities in an AWS region.
+
+##### Anti-Patterns
+
+If your schema cannot be denormalized and your application requires joins or complex transactions, consider a relational database instead. Or S3.
+
+#### Data Warehouse
+
+Redshift.
+
+##### Scalability
+
+Amazon Redshift achieves efficient storage and optimum query performance through a combination of massively parallel processing (MPP), columnar data storage, and targeted data compression encoding schemes. The Amazon Redshift MPP architecture enables you to increase performance by increasing the number of nodes in your data warehouse cluster.
+
+##### High Availability
+
+We recommend that you deploy production workloads in multi-node clusters in which data written to a node is automatically replicated to other nodes within the cluster. Data is also continuously backed up to Amazon S3. 
+
+##### Anti-Patterns
+
+If you expect a high concurrency workload that generally involves reading and writing all of the columns for a small number of records at a time you should instead consider using Amazon RDS or Amazon DynamoDB. 
+
+#### Search
+
+CloudSearch & Elasticsearch.
+
+On the one hand, Amazon CloudSearch is a managed service that requires little configuration and will scale automatically. On the other hand, Amazon ES offers an open source API and gives you more control over the configuration details. 
+
+##### Scalability
+
+Both Amazon CloudSearch and Amazon ES use data partitioning and replication to scale horizontally. The difference is that Amazon CloudSearch handles the number of partitions and replicas you will need automatically. 
+
+##### High Availability
+
+Both services provide features that store data redundantly across Availability Zones. 
+
+### Removing Single Points of Failure
+
+A system is highly available when it can withstand the failure of an individual or multiple components.
+
+#### Introducing Redundancy
+
+Single points of failure can be removed by introducing redundancy, which is having multiple resources for the same task. Redundancy can be implemented in either standby or active mode.
+
+#### Detect Failure
+
+You can use services like ELB and Amazon Route53 to configure health checks and mask failure by routing traffic to healthy endpoints. In addition, Auto Scaling can be configured to automatically replace unhealthy nodes. You can also replace unhealthy nodes using the Amazon EC2 autorecovery feature or services such as AWS OpsWorks and AWS Elastic Beanstalk. 
+
+#### Durable Data Storage
+
+Data replication is the technique that introduces redundant copies of data. It can help horizontally scale read capacity, but it also increase data durability and availability.
+
+Synchronous replication only acknowledges a transaction after it has been durably stored in both the primary location and its replicas. 
+
+Asynchronous replication decouples the primary node from its replicas at the expense of introducing replication lag.
+
+Quorum-based replication combines synchronous and asynchronous replication to overcome the challenges of large-scale distributed database systems. 
+
+#### Automated Multi-Data Center Resilience
+
+Many of the higher level services on AWS are inherently designed according to the Multi-AZ principle. For example, Amazon RDS provides high availability and automatic failover support for DB instances using Multi-AZ deployments, while with Amazon S3 and Amazon DynamoDB your data is redundantly stored across multiple facilities.
+
+#### Fault Isolation and Traditional Horizontal Scaling
+
+If a particular request happens to trigger a bug that causes the system to fail over, then the caller may trigger a cascading failure by repeatedly trying the same request against all instances.
+
+One fault-isolating improvement you can make to traditional horizontal scaling is called sharding. Similar to the technique traditionally used with data storage systems, instead of spreading traffic from all customers across every node, you can group the instances into shards. For example, if you have eight instances for your service, you might create four shards of two instances each (two instances for some redundancy within each shard) and distribute each customer to a specific shard. 
+
+However, there will still be affected customers, so the key is to make the client fault tolerant. If the client can try every endpoint in a set of sharded resources, until one succeeds, you get a dramatic improvement. This technique is called shuffle sharding
