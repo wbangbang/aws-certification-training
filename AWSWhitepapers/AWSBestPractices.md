@@ -265,4 +265,64 @@ If a particular request happens to trigger a bug that causes the system to fail 
 
 One fault-isolating improvement you can make to traditional horizontal scaling is called sharding. Similar to the technique traditionally used with data storage systems, instead of spreading traffic from all customers across every node, you can group the instances into shards. For example, if you have eight instances for your service, you might create four shards of two instances each (two instances for some redundancy within each shard) and distribute each customer to a specific shard. 
 
-However, there will still be affected customers, so the key is to make the client fault tolerant. If the client can try every endpoint in a set of sharded resources, until one succeeds, you get a dramatic improvement. This technique is called shuffle sharding
+However, there will still be affected customers, so the key is to make the client fault tolerant. If the client can try every endpoint in a set of sharded resources, until one succeeds, you get a dramatic improvement. This technique is called shuffle sharding.
+
+### Optimize for Cost
+
+#### Right Sizing
+
+AWS offers a broad range of resource types and configurations to suit a plethora of use cases. For example, services like Amazon EC2, Amazon RDS, Amazon Redshift, and Amazon Elasticsearch Service (Amazon ES) give you a lot of choice of instance types. 
+
+Similarly, you can reduce cost by selecting the right storage solution for your needs. For example, Amazon S3 offers a variety of storage classes, including Standard, Reduced Redundancy, and Standard-Infrequent Access. Other services, such as Amazon EC2, Amazon RDS, and Amazon ES support different Amazon Elastic Block Store (Amazon EBS) volume types (magnetic, general purpose SSD, provisioned IOPS SSD) that you should evaluate.
+
+You can make tagging a part of your build process and automate it with AWS management tools like AWS Elastic Beanstalk and AWS OpsWorks. You can also use the managed rules provided by AWS Config to assess whether specific tags are applied to your resources or not.
+
+#### Elasticity
+
+Plan to implement Auto Scaling for as many Amazon EC2 workloads as possible.
+
+Ultimately, consider which compute workloads you could implement on AWS Lambda so that you never pay for idle or redundant resources. 
+
+Where possible, replace Amazon EC2 workloads with AWS managed services that either don’t require you to take any capacity decisions (e.g., ELB, Amazon CloudFront, Amazon SQS, Amazon Kinesis Firehose, AWS Lambda, Amazon SES, Amazon CloudSearch) or enable you to easily modify capacity as and when need (e.g., Amazon DynamoDB, Amazon RDS, Amazon Elasticsearch Service).
+
+#### Take Advantage of the Variety of Purchasing Options
+
+There are two more ways to pay for Amazon EC2 instances that can help you reduce spend: Reserved Instances and Spot Instances.
+
+> Tip: You should not commit to Reserved Instance purchases before sufficiently benchmarking your application in production. 
+
+Spot pricing best practice - Spot Instances allow you to bid on multiple instance types simultaneously. Because prices fluctuate independently for each instance type in an Availability Zone, you can often get more compute capacity for the same price if your app is designed to be flexible about instance types. 
+ 
+### Caching
+
+#### Application Data Caching
+
+Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. It supports two open-source in-memory caching engines: Memcached and Redis.
+
+#### Edge Caching
+
+Copies of static content (e.g., images, css files, streaming of pre-recorded video) and dynamic content (e.g., html response, live video) can be cached at Amazon CloudFront, which is a content delivery network (CDN) consisting of multiple edge locations around the world.
+
+The benefit is that Amazon CloudFront reuses existing connections between the Amazon CloudFront edge and the origin server reducing connection setup latency for each origin request. Other connection optimizations are also applied to avoid Internet bottlenecks and fully utilize available bandwidth between the edge location and the viewer. 
+
+### Security
+
+#### Utilize AWS Features for Defense in Depth
+
+VPC; IAM; Encryption.
+
+#### Offload Security Responsibility to AWS
+
+Shared security responsibility model - AWS is responsible for the security of the underlying cloud infrastructure and you are responsible for securing the workloads you deploy in AWS.
+
+#### Reduce Privileged Access
+
+CloudWatch; IAM.
+
+#### Security as Code
+
+CloudFormation.
+
+#### Real-Time Auditing
+
+AWS Config; Trusted Advisor; CloudTrail.
