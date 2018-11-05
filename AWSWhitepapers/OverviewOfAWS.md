@@ -105,3 +105,61 @@ The AWS Storage Gateway service seamlessly enables hybrid storage between on-pre
 Amazon Aurora is a MySQL and PostgreSQL compatible relational database engine that combines the speed and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. 
 
 #### Amazon RDS
+
+Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud.
+
+#### Amazon DynamoDB
+
+Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale.
+
+#### Amazon ElastiCache
+
+Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud.
+
+### Migration
+
+#### AWS Application Discovery Service
+
+AWS Application Discovery Service helps systems integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profiles.
+
+#### AWS Database Migration Service
+
+The AWS Database Migration Service can migrate your data to and from most widely used commercial and open-source databases. The service supports homogenous migrations as well as heterogeneous migrations between different database platforms. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.
+
+#### AWS Server Migration Service
+
+AWS Server Migration Service (SMS) is an agentless service which makes it easier and faster for you to migrate thousands of on-premises workloads to AWS.
+
+#### AWS Snowball
+
+AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of AWS. 
+
+#### AWS Snowball Edge
+
+AWS Snowball Edge is a 100 TB data transfer device with on-board storage and compute capabilities. You can use Snowball Edge to move large amounts of data into and out of AWS, as a temporary storage tier for large local datasets, or to support local workloads in remote or offline locations.
+
+#### AWS Snowmobile
+
+AWS Snowmobile is an exabyte-scale data transfer service used to move extremely large amounts of data to AWS. 
+
+### Networking and Content Delivery
+
+#### Amazon VPC
+
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
+
+#### Amazon CloudFront
+
+Amazon CloudFront is a global content delivery network (CDN) service that accelerates delivery of your websites, APIs, video content, or other web assets.
+
+#### Amazon Route 53
+
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service.
+
+#### AWS Direct Connect
+
+AWS Direct Connect makes it easy to establish a dedicated network connection from your premises to AWS.
+
+#### Elastic Load Balancing
+
+Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple EC2 instances. Elastic Load Balancing offers two types of load balancers that both feature high availability, automatic scaling, and robust security. These include the Classic Load Balancer that routes traffic based on either application or network level information, and the Application Load Balancer that routes traffic based on advanced application-level information that includes the content of the request.
