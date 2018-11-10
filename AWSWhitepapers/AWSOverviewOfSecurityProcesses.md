@@ -15,3 +15,26 @@ In addition to protecting this global infrastructure, AWS is responsible for the
 ### Customer Security Responsibilities
 
 AWS products that fall into the well-understood category of Infrastructure as a Service (IaaS)—such as Amazon EC2, Amazon VPC, and Amazon S3—are completely under your control and require you to perform all of the necessary security configuration and management tasks. 
+
+With managed services, you don’t have to worry about launching and maintaining instances, patching the guest OS or database, or replicating databases—AWS handles that for you. But as with all services, you should protect your AWS Account credentials and set up individual user accounts with Amazon Identity and Access Management (IAM). We also recommend using multi-factor authentication (MFA) with each account, requiring the use of SSL/TLS to communicate with your AWS resources, and setting up API/user activity logging with AWS CloudTrail. 
+
+## AWS Global Infrastructure Security
+
+The AWS global infrastructure includes the facilities, network, hardware, and operational software (e.g., host OS, virtualization software, etc.) that support the provisioning and use of these resources. 
+
+### AWS Compliance Program
+
+The IT infrastructure that AWS provides to its customers is designed and managed in alignment with security best practices and a variety of IT security standards, including:
+
+* SOC 1/SSAE 16/ISAE 3402 (formerly SAS 70)
+* SOC 2
+* SOC 3
+* FISMA, DIACAP, and FedRAMP
+* DOD CSM Levels 1-5
+* PCI DSS Level 1
+* ISO 9001 / ISO 27001
+* ITAR
+* FIPS 140-2
+* MTCS Level 3
+
+### Physical and Environmental Security
