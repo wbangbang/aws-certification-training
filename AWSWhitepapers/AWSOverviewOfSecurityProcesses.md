@@ -38,3 +38,20 @@ The IT infrastructure that AWS provides to its customers is designed and managed
 * MTCS Level 3
 
 ### Physical and Environmental Security
+
+#### Fire Detection and Suppression
+
+#### Power
+
+#### Climate and Temperature
+
+#### Management
+
+#### Storage Device Decommissioning
+
+### Business Continuity Management
+
+Amazon’s infrastructure has a high level of availability and provides customers the features to deploy a resilient IT architecture. 
+
+#### Availability
+
