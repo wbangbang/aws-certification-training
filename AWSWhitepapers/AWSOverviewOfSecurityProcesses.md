@@ -116,3 +116,5 @@ This includes credentials for access control, HTTPS endpoints for encrypted data
 * X.509 Certificates
 
 ### Individual User Accounts
+
+### Secure HTTPS Access Points
