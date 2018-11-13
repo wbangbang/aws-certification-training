@@ -78,3 +78,41 @@ Logically, the AWS Production network is segregated from the Amazon Corporate ne
 #### Network Monitoring and Protection
 
 ### AWS Access
+
+#### Account Review and Audit
+
+Accounts are reviewed every 90 days; explicit re-approval is required or access to the resource is automatically revoked. 
+
+#### Background Checks
+
+#### Credentials Policy
+
+Passwords must be complex and are forced to be changed every 90 days.
+
+### Secure Design Principles
+
+### Change Management
+
+Routine, emergency, and configuration changes to existing AWS infrastructure are authorized, logged, tested, approved, and documented in accordance with industry norms for similar systems.
+
+#### Software
+
+AWS applies a systematic approach to managing change so that changes to customer-impacting services are thoroughly reviewed, tested, approved, and well-communicated.
+
+#### Infrastructure
+
+Amazon’s Corporate Applications team develops and manages software to automate IT processes for UNIX/Linux hosts in the areas of third-party software delivery, internally developed software, and configuration management. 
+
+### AWS Account Security Features
+
+This includes credentials for access control, HTTPS endpoints for encrypted data transmission, the creation of separate IAM user accounts, user activity logging for security monitoring, and Trusted Advisor security checks. 
+
+#### AWS Credentials 
+
+* Passwords
+* Multi-Factor Authetication
+* Access Keys
+* Key Pairs
+* X.509 Certificates
+
+### Individual User Accounts
