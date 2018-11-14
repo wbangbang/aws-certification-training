@@ -118,3 +118,11 @@ This includes credentials for access control, HTTPS endpoints for encrypted data
 ### Individual User Accounts
 
 ### Secure HTTPS Access Points
+
+### Security Logs
+
+AWS CloudTrail provides a log of events within your account. For each event, you can see what service was accessed, what action was performed, and who made the request.
+
+### AWS Trusted Advisor Security Checks
+
+### AWS Config Security Checks
