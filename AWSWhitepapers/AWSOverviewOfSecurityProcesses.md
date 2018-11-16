@@ -126,3 +126,22 @@ AWS CloudTrail provides a log of events within your account. For each event, you
 ### AWS Trusted Advisor Security Checks
 
 ### AWS Config Security Checks
+
+AWS Config is a continuous monitoring and assessment service that records changes to the configuration of your AWS resources. Using Config Rules, you can run continuous assessment checks on your resources to verify that they comply with your own security policies, industry best practices, and compliance regimes such as PCI/HIPAA.
+
+## AWS Service-Specific Security
+
+### Compute Services
+
+#### Amazon Elastic Compute Cloud (Amazon EC2) Security
+
+* Multiple Levels of Security - the operating system (OS) of the host platform, the virtual instance OS or guest OS, a firewall, and signed API calls. 
+* The Hypervisor - Amazon EC2 currently utilizes a highly customized version of the Xen hypervisor, taking advantage of paravirtualization (in the case of Linux guests). 
+* Instance Isolation - Different instances running on the same physical machine are isolated from each other via the Xen hypervisor. In addition, the AWS firewall resides within the hypervisor layer, between the physical network interface and the instance's virtual interface. 
+
+![](https://docplayer.net/docs-images/24/3785024/images/22-0.png)
+![](https://d1.awsstatic.com/aws-answers/answers-images/security-group-config.17423baeced21997af7a131760196cfed6f39bb9.png)
+
+* Elastic Block Storage (Amazon EBS) Security - Amazon Elastic Block Storage (EBS) allows you to create storage volumes from 1 GB to 16 TB that can be mounted as devices by Amazon EC2 instances. Amazon EBS volume access is restricted to the AWS Account that created the volume, and to the users under the AWS Account created with AWS IAM if the user has been granted access to the EBS operations.
+
+#### Auto Scaling Security
