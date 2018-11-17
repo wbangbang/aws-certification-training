@@ -145,3 +145,10 @@ AWS Config is a continuous monitoring and assessment service that records change
 * Elastic Block Storage (Amazon EBS) Security - Amazon Elastic Block Storage (EBS) allows you to create storage volumes from 1 GB to 16 TB that can be mounted as devices by Amazon EC2 instances. Amazon EBS volume access is restricted to the AWS Account that created the volume, and to the users under the AWS Account created with AWS IAM if the user has been granted access to the EBS operations.
 
 #### Auto Scaling Security
+
+Auto Scaling requires that every request made to its control API be authenticated so only authenticated users can access and manage Auto Scaling. You can use roles within IAM, so that any new instances launched with a role will be given credentials automatically.
+
+### Networking Services
+
+#### Amazon Elastic Load Balancing Security
+
