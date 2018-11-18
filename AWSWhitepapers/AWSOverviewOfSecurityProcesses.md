@@ -152,3 +152,19 @@ Auto Scaling requires that every request made to its control API be authenticate
 
 #### Amazon Elastic Load Balancing Security
 
+Elastic Load Balancing has all the advantages of an on-premises load balancer, plus several security benefits:
+
+* Takes over the encryption and decryption work from the Amazon EC2 instances and manages it centrally on the load balancer
+* Offers clients a single point of contact, and can also serve as the first line of defense against attacks on your network
+* When used in an Amazon VPC, supports creation and management of security groups associated with your Elastic Load Balancing to provide additional networking and security options
+* Supports end-to-end traffic encryption using TLS (previously SSL) on those networks that use secure HTTP (HTTPS) connections. When TLS is used, the TLS server certificate used to terminate client connections can be managed centrally on the load balancer, rather than on every individual instance.
+
+#### Amazon Virtual Private Cloud (Amazon VPC) Security
+
+AWS offers a variety of VPC architecture templates with configurations that provide varying levels of public access:
+
+* VPC with a single public subnet only.
+* VPC with public and private subnets.
+* VPC with public and private subnets and hardware VPN access. 
+* VPC with private subnet only and hardware VPN access.
+
