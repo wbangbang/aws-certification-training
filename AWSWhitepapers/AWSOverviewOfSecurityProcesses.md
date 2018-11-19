@@ -168,3 +168,35 @@ AWS offers a variety of VPC architecture templates with configurations that prov
 * VPC with public and private subnets and hardware VPN access. 
 * VPC with private subnet only and hardware VPN access.
 
+Note that you must create VPC security groups specifically for your Amazon VPC; any Amazon EC2 security groups you have created will not work inside your Amazon VPC.
+
+Each Amazon VPC is a distinct, isolated network within the cloud; network traffic within each Amazon VPC is isolated from all other Amazon VPCs.
+
+**API Access:** Calls to create and delete Amazon VPCs, change routing, security group, and network ACL parameters, and perform other functions are all signed by your Amazon Secret Access Key, which could be either the AWS Account’s Secret Access Key or the Secret Access key of a user created with AWS IAM. 
+
+**Subnets and Route Tables:** You create one or more subnets within each Amazon VPC; each instance launched in the Amazon VPC is connected to one subnet. Each subnet in an Amazon VPC is associated with a routing table, and all network traffic leaving the subnet is processed by the routing table to determine the destination.
+
+**Firewall (Security Groups):** Like Amazon EC2, Amazon VPC supports a complete firewall solution enabling filtering on both ingress and egress traffic from an instance. The default group enables inbound communication from other members of the same group and outbound communication to any destination. 
+
+**Network Access Control Lists:** These are stateless traffic filters that apply to all traffic inbound or outbound from a subnet within Amazon VPC. 
+
+![](https://dome9.com/wp-content/uploads/2015/07/blog-pic1.png)
+
+**Virtual Private Gateway:** A virtual private gateway enables private connectivity between the Amazon VPC and another network.
+
+**Internet Gateway:** An Internet gateway may be attached to an Amazon VPC to enable direct connectivity to Amazon S3, other AWS services, and the Internet. 
+
+**Dedicated Instances:** An Amazon VPC can be created with ‘dedicated’ tenancy, so that all instances launched into the Amazon VPC will utilize this feature.
+
+**Elastic Network Interfaces:** Each Amazon EC2 instance has a default network interface that is assigned a private IP address on your Amazon VPC network. You can create and attach an additional network interface, known as an elastic network interface (ENI), to any Amazon EC2 instance in your Amazon VPC for a total of two network interfaces per instance. 
+
+Additional Network Access Control with EC2-VPC
+When you launch an instance into a default VPC using EC2-VPC, we do the following to set it up for you:
+
+* Create a default subnet in each Availability Zone
+* Create an Internet gateway and connect it to your default VPC
+* Create a main route table for your default VPC with a rule that sends all traffic destined for the Internet to the Internet gateway
+* Create a default security group and associate it with your default VPC
+* Create a default network access control list (ACL) and associate it with your default VPC
+* Associate the default DHCP options set for your AWS account with your default VPC
+
