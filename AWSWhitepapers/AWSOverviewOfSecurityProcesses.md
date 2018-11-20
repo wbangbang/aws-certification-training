@@ -200,3 +200,67 @@ When you launch an instance into a default VPC using EC2-VPC, we do the followin
 * Create a default network access control list (ACL) and associate it with your default VPC
 * Associate the default DHCP options set for your AWS account with your default VPC
 
+Note the difference between EC2-Classic and EC2-VPC.
+
+#### Amazon Route 53 Security
+
+The distributed nature of the AWS DNS servers helps ensure a consistent ability to route your end users to your application. Route 53 also helps ensure the availability of your website by providing health checks and DNS failover capabilities. 
+
+Like all AWS Services, Amazon Route 53 requires that every request made to its control API be authenticated so only authenticated users can access and manage Route 53.
+
+#### Amazon CloudFront Security
+
+Like all AWS Services, Amazon Route 53 requires that every request made to its control API be authenticated so only authenticated users can access and manage Route 53. Additionally, the Amazon CloudFront control API is only accessible via SSL-enabled endpoints.
+
+There is no guarantee of durability of data held in Amazon CloudFront edge locations.
+
+If you want control over who is able to download content from Amazon CloudFront, you can enable the service’s private content feature. This feature has two components: the first controls how content is delivered from the Amazon CloudFront edge location to viewers on the Internet. The second controls how the Amazon CloudFront edge locations access objects in Amazon S3.
+
+To control access to the original copies of your objects in Amazon S3, Amazon CloudFront allows you to create one or more “Origin Access Identities” and associate these with your distributions. When an Origin Access Identity is associated with an Amazon CloudFront distribution, the distribution will use that identity to retrieve objects from Amazon S3.
+
+To control who is able to download objects from Amazon CloudFront edge locations, the service uses a signed-URL verification system.
+
+#### AWS Direct Connect Security
+
+With AWS Direct Connect, you can provision a direct link between your internal network and an AWS region using a high-throughput, dedicated connection. With this dedicated connection in place, you can then create virtual interfaces directly to the AWS cloud (for example, to Amazon EC2 and Amazon S3) and Amazon VPC.
+
+### Storage Services
+
+#### Amazon Simple Storage Service (Amazon S3) Security
+
+**Data Access**
+
+* Identity and Access Management (IAM) Policies.
+* Access Control Lists (ACLs).
+* Bucket Policies.
+
+| Type of Access Control | AWS Account-Level Control? | User-Level Control? |
+| :--------------------- | :------------------------- | :------------------ |
+| IAM Policies           | No                         | Yes                 |
+| ACLs                   | Yes                        | No                  |
+| Bucket Policies        | Yes                        | Yes                 |
+
+Amazon S3 also gives developers the option to use query string authentication, which allows them to share Amazon S3 objects through URLs that are valid for a predefined period of time.
+
+**Data Transfer**
+
+For maximum security, you can securely upload/download data to Amazon S3 via the SSL encrypted endpoints. 
+
+**Data Storage**
+
+* Client-side encryption
+* Server-side encryption 
+
+> Note: Metadata, which you can include with your object, is not encrypted. 
+
+**Data Durability and Reliability**
+
+To help provide durability, Amazon S3 PUT and COPY operations synchronously store customer data across multiple facilities before returning SUCCESS. Amazon S3 provides further protection via Versioning. 
+
+**Access Logs**
+
+An Amazon S3 bucket can be configured to log access to the bucket and objects within it. 
+
+**Cross-Origin Resource Sharing (CORS)**
+
+AWS customers who use Amazon S3 to host static web pages or store objects used by other web pages can load content securely by configuring an Amazon S3 bucket to explicitly enable cross-origin requests. 
