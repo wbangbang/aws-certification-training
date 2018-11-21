@@ -264,3 +264,28 @@ An Amazon S3 bucket can be configured to log access to the bucket and objects wi
 **Cross-Origin Resource Sharing (CORS)**
 
 AWS customers who use Amazon S3 to host static web pages or store objects used by other web pages can load content securely by configuring an Amazon S3 bucket to explicitly enable cross-origin requests. 
+
+#### AWS Glacier Security
+
+**Data Upload**
+
+To achieve even greater security, you can securely upload/download data to Amazon Glacier via the SSL-encrypted endpoints. 
+
+**Data Retrieval**
+
+You can retrieve an entire archive or several files from an archive. 
+
+**Data Storage**
+
+Glacier performs regular, systematic data integrity checks and is built to be automatically self-healing.
+
+**Data Access**
+
+To control access to your data in Amazon Glacier, you can use AWS IAM to specify which users within your account have rights to operations on a given vault.
+
+#### AWS Storage Gateway Security
+
+Data is asynchronously transferred from your on-premises storage hardware to AWS over SSL.
+
+#### AWS Import/Export Security
+
