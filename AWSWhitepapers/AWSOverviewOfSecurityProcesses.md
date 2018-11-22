@@ -289,3 +289,22 @@ Data is asynchronously transferred from your on-premises storage hardware to AWS
 
 #### AWS Import/Export Security
 
+Like all other AWS services, the AWS Import/Export service requires that you securely identify and authenticate your storage device. For added protection, you can encrypt the data on your device before you ship it to AWS. After the import is complete, AWS Import/Export will erase the contents of your storage device to safeguard the data during return shipment.
+
+#### Amazon Elastic File System Security
+
+**Data Access**
+
+When using Amazon EFS, you specify Amazon EC2 security groups for your EC2 instances and security groups for the EFS mount targets associated with the file system. Security groups act as a firewall, and the rules you add define the traffic flow. All Amazon EFS file systems are owned by an AWS Account. 
+
+**Data Durability and Reliability**
+
+All data and metadata is stored across multiple Availability Zones. EFS provides strong consistency by synchronously replicating data across Availability Zones.
+
+**Data Sanitization**
+
+Amazon EFS is designed so that when you delete data from a file system, that data will never be served again.
+
+### Database Services
+
+#### Amazon DynamoDB Security
