@@ -308,3 +308,11 @@ Amazon EFS is designed so that when you delete data from a file system, that dat
 ### Database Services
 
 #### Amazon DynamoDB Security
+
+You can create a database table that can store and retrieve any amount of data, and serve any level of request traffic. All data items are stored on Solid State Drives (SSDs) and are automatically replicated across multiple availability zones in a region to provide built-in high availability and data durability.
+
+To control who can use the DynamoDB resources and API, you set up permissions in AWS IAM. In addition to controlling access at the resource-level with IAM, you can also control access at the database level—you can create database-level permissions that allow or deny access to items (rows) and attributes (columns) based on the needs of your application. 
+
+Users can sign in to an identity provider and then obtain temporary security credentials from AWS Security Token Service (AWS STS). AWS STS returns temporary AWS credentials to the application and allows it to access the specific DynamoDB table.
+
+#### Amazon Relational Database Service (Amazon RDS) Security
