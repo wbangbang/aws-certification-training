@@ -316,3 +316,11 @@ To control who can use the DynamoDB resources and API, you set up permissions in
 Users can sign in to an identity provider and then obtain temporary security credentials from AWS Security Token Service (AWS STS). AWS STS returns temporary AWS credentials to the application and allows it to access the specific DynamoDB table.
 
 #### Amazon Relational Database Service (Amazon RDS) Security
+
+Amazon RDS has multiple features that enhance reliability for critical production databases, including DB security groups, permissions, SSL connections, automated backups, DB snapshots, and multi-AZ deployments. DB instances can also be deployed in an Amazon VPC for additional network isolation.
+
+**Access Control**
+
+* The master user account is a native database user account that allows you to log on to your DB Instance with all database privileges.
+* You can control Amazon RDS DB Instance access via DB Security Groups, which are similar to Amazon EC2 Security Groups but not interchangeable.
+* Using AWS IAM, you can further control access to your RDS DB instances.
