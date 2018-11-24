@@ -324,3 +324,10 @@ Amazon RDS has multiple features that enhance reliability for critical productio
 * The master user account is a native database user account that allows you to log on to your DB Instance with all database privileges.
 * You can control Amazon RDS DB Instance access via DB Security Groups, which are similar to Amazon EC2 Security Groups but not interchangeable.
 * Using AWS IAM, you can further control access to your RDS DB instances.
+
+**Network Isolation**
+
+For additional network access control, you can run your DB Instances in an Amazon VPC. 
+
+For Multi-AZ deployments, defining a subnet for all availability zones in a region will allow Amazon RDS to create a new standby in another availability zone should the need arise. You can create DB Subnet Groups, which are collections of subnets that you may want to designate for your RDS DB Instances in a VPC. 
+
