@@ -331,3 +331,30 @@ For additional network access control, you can run your DB Instances in an Amazo
 
 For Multi-AZ deployments, defining a subnet for all availability zones in a region will allow Amazon RDS to create a new standby in another availability zone should the need arise. You can create DB Subnet Groups, which are collections of subnets that you may want to designate for your RDS DB Instances in a VPC. 
 
+**Encryption**
+
+You can encrypt connections between your application and your DB Instance using SSL. While SSL offers security benefits, be aware that SSL encryption is a compute intensive operation and will increase the latency of your database connection. 
+
+**Automated Backups and DB Snapshots**
+
+Amazon RDS provides two different methods for backing up and restoring your DB Instance(s): automated backups and database snapshots (DB Snapshots).
+
+Turned on by default, the automated backup feature of Amazon RDS enables point-in-time recovery for your DB Instance. This allows you to restore your DB Instance to any second during your retention period, up to the last 5 minutes. Your automatic backup retention period can be configured to up to 35 days.
+
+During the backup window, storage I/O may be suspended while your data is being backed up. This I/O suspension is avoided with Multi-AZ DB deployments, since the backup is taken from the standby.
+
+**DB Instance Replication**
+
+To architect for high availability of your Oracle, PostgreSQL, or MySQL databases, you can run your RDS DB instance in several Availability Zones, an option called a Multi-AZ deployment. When you select this option, Amazon automatically provisions and maintains a synchronous standby replica of your DB instance in a different Availability Zone. 
+
+For customers who use MySQL and need to scale beyond the capacity constraints of a single DB Instance for read-heavy database workloads, Amazon RDS provides a Read Replica option. 
+
+**Automatic Software Patching**
+
+Amazon RDS will make sure that the relational database software powering your deployment stays up-to-date with the latest patches. When necessary, patches are applied during a maintenance window that you can control. 
+
+The only maintenance events that require Amazon RDS to take your DB Instance offline are scale compute operations (which generally take only a few minutes from start-to-finish) or required software patching. 
+
+**Event Notification**
+
+You can receive notifications of a variety of important events that can occur on your RDS instance.
