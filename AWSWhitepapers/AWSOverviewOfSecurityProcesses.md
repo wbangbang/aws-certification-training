@@ -410,3 +410,8 @@ All Amazon CloudSearch configuration requests must be authenticated using standa
 Like all AWS Services, Amazon CloudSearch requires that every request made to its control API be authenticated so only authenticated users can access and manage your CloudSearch domain.
 
 #### Amazon Simple Queue Service (Amazon SQS) Security
+
+Amazon SQS access is granted based on an AWS Account or a user created with AWS IAM. Once authenticated, the AWS Account has full access to all user operations. An AWS IAM user, however, only has access to the operations and queues for which they have been granted access via policy. 
+
+#### Amazon Simple Notification Service (Amazon SNS) Security
+
